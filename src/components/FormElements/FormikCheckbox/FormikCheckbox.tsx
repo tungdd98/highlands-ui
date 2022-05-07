@@ -55,7 +55,7 @@ const FormikCheckbox: FC<FormikCheckboxProps> = ({
     <FormControl component="fieldset" variant="standard" error={!!error}>
       {label && (
         <FormLabel component="legend">
-          <Typography fontWeight={600}>{label}</Typography>
+          <Typography sx={{ fontWeight: 600 }}>{label}</Typography>
         </FormLabel>
       )}
       <FormGroup>

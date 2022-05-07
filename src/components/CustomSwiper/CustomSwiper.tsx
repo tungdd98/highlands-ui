@@ -18,6 +18,7 @@ interface CustomSwiperProps extends SwiperProps {
 
 const CustomSwiper: FC<CustomSwiperProps> = ({ hasMargin, ...props }) => {
   const Element = hasMargin ? CustomSwiperStyled : Box;
+
   return (
     <Element overflow="hidden">
       <Swiper {...props} />

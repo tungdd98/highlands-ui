@@ -12,22 +12,22 @@ import { useTranslation } from "react-i18next";
 
 interface ConfirmDialogProps {
   open: boolean;
-  onClose: () => void;
-  onSubmit: () => void;
   title: string;
   subTitle?: string;
   textCancel?: string;
   textAgree?: string;
+  onClose: () => void;
+  onSubmit: () => void;
 }
 
 const ConfirmDialog: FC<ConfirmDialogProps> = ({
   open,
-  onClose,
   title,
   subTitle,
-  onSubmit,
   textCancel = "Cancel",
   textAgree = "Agree",
+  onClose,
+  onSubmit,
 }) => {
   const { t } = useTranslation();
 

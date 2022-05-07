@@ -45,7 +45,7 @@ const FormikRadioGroup: FC<FormikRadioGroupProps> = ({
     <FormControl component="fieldset" variant="standard" error={!!error}>
       {label && (
         <FormLabel component="legend">
-          <Typography fontWeight={600}>{label}</Typography>
+          <Typography sx={{ fontWeight: 600 }}>{label}</Typography>
         </FormLabel>
       )}
       <RadioGroup name={name} value={value} onChange={handleChange} {...rest}>

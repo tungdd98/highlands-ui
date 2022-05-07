@@ -44,7 +44,7 @@ const FormikSelect: FC<FormikSelectProps> = ({
   return (
     <FormControl sx={{ minWidth: 120 }} fullWidth={fullWidth}>
       {label && (
-        <Typography mb={1} fontWeight="fontWeightMedium">
+        <Typography sx={{ mb: 1, fontWeight: "fontWeightMedium" }}>
           <label htmlFor={`label-${id || name}`}>
             {t(`label.${label}`, { ns })}
           </label>

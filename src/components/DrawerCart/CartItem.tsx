@@ -56,13 +56,12 @@ const CartItem: FC<CartItemProps> = props => {
               to={compile(ProductPathsEnum.CLIENT_DETAIL)({
                 productId: id,
               })}
-              mb={1}
-              fontWeight={600}
+              sx={{ mb: 1, fontWeight: 600 }}
               noWrap
             >
               {title}
             </CustomLink>
-            <Typography fontWeight={600} color="primary.main" mb={1}>
+            <Typography sx={{ fontWeight: 600, mb: 1 }} color="primary.main">
               {toCurrency(price)}
             </Typography>
             <Box mb={3}>

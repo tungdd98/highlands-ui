@@ -21,6 +21,7 @@ interface NavbarMobileProps {
 const NavbarMobile: FC<NavbarMobileProps> = ({ handleOpenAccountSetting }) => {
   const {
     auth: { userInfo },
+    setting: { setting },
   } = useAppSelector(state => state);
 
   return (
@@ -36,7 +37,7 @@ const NavbarMobile: FC<NavbarMobileProps> = ({ handleOpenAccountSetting }) => {
           <MenuRounded />
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Highlands
+          {setting?.title}
         </Typography>
         {userInfo ? (
           <Tooltip title="Account settings">
