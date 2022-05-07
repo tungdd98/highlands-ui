@@ -6,6 +6,7 @@ import {
   PersonRounded,
   AccountBoxRounded,
   LogoutRounded,
+  DashboardRounded,
 } from "@mui/icons-material";
 import {
   Box,
@@ -99,16 +100,18 @@ const Navbar: FC = () => {
           component={Paper}
           elevation={3}
           sx={{ position: "sticky", top: 0, zIndex: 999 }}
+          square
         >
           <Container maxWidth="lg">
             <Box sx={{ display: "flex", alignItems: "center", py: 2 }}>
-              <CustomLink to="/">
+              <Link to="/">
                 <PreviewImage
                   src={setting?.thumbnail || Logo}
                   alt="logo"
-                  width={120}
+                  width={60}
+                  height={60}
                 />
-              </CustomLink>
+              </Link>
               <Stack
                 component="nav"
                 direction="row"
@@ -186,6 +189,12 @@ const Navbar: FC = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
+        <MenuItem component={Link} to="/admin">
+          <ListItemIcon>
+            <DashboardRounded fontSize="small" />
+          </ListItemIcon>
+          {t("menu.Admin", { ns: "client" })}
+        </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <AccountBoxRounded fontSize="small" />

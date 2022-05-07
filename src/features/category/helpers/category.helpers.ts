@@ -1,5 +1,6 @@
 import * as yup from "yup";
 
+import { StatusEnum } from "constants/common.constants";
 import {
   CategoryTypesEnum,
   CategoryDef,
@@ -16,6 +17,7 @@ export const searchInitialValues: CategoryParams = {
   id: "",
   title: "",
   type: "",
+  status: StatusEnum.DISPLAY,
   page: 1,
   perPage: 5,
 };

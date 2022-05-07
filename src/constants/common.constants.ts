@@ -39,3 +39,8 @@ export const LANGUAGE_OPTIONS: LanguageOption[] = [
   { lng: "en", flag: FlagEn, title: "English" },
   { lng: "vi", flag: FlagVi, title: "Vietnamese" },
 ];
+
+export enum StatusEnum {
+  HIDDEN,
+  DISPLAY,
+}

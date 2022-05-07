@@ -141,6 +141,9 @@ const PreviewImage: FC<PreviewImageProps> = ({
             handleImageOnLoad();
           }
         }}
+        style={{
+          height: props.height,
+        }}
       />
     </Box>
   );

@@ -6,6 +6,7 @@ import {
   ProductDef,
   ProductParams,
   ProductRequest,
+  DEFAULT_SEARCH_PRICE,
 } from "features/product/product";
 
 export const searchSchema = yup.object().shape({
@@ -57,3 +58,12 @@ export const initialValuesSort = {
   brands: [""],
   price: 0,
 };
+
+export const initialQueries: ProductParams = {
+  page: 1,
+};
+
+export const initialQueriesSearchPrice: number[] = [
+  DEFAULT_SEARCH_PRICE.MIN,
+  DEFAULT_SEARCH_PRICE.DEFAULT,
+];

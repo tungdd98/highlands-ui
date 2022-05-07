@@ -77,7 +77,8 @@
     "My order": "Đơn hàng đã đặt",
     "Logout": "Đăng xuất",
     "Cancel order": "Huỷ đơn hàng",
-    "View detail": "Xem chi tiết đơn hàng"
+    "View detail": "Xem chi tiết đơn hàng",
+    "Admin": "Admin"
   },
   "nav": {
     "home": "Trang chủ",

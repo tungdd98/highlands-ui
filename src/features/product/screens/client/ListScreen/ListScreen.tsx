@@ -1,14 +1,12 @@
-import React, { FC, memo, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import {
-  FilterListRounded,
   FormatListBulletedRounded,
   GridViewRounded,
 } from "@mui/icons-material";
 import {
   Box,
   Breadcrumbs,
-  Button,
   Container,
   FormControl,
   Grid,
@@ -23,12 +21,10 @@ import {
   Typography,
 } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
 import CustomLink from "components/CustomLink/CustomLink";
-import FormikCheckbox from "components/FormElements/FormikCheckbox/FormikCheckbox";
 import Loader from "components/Loader/Loader";
 import ProductItemGrid from "components/ProductItem/ProductItemGrid";
 import ProductItemList from "components/ProductItem/ProductItemList";
@@ -36,25 +32,53 @@ import { CategoryDef, getCategoryDetail } from "features/category/category";
 import {
   getProductList,
   ProductDef,
-  initialValuesSort,
   LayoutsEnum,
+  DEFAULT_PER_PAGE,
+  initialQueries,
+  SORT_QUERY_OPTIONS,
+  SortQueryEnum,
 } from "features/product/product";
+import useQueryState from "hooks/useQueryString";
 import { useAppDispatch } from "redux/store";
 
-const CategoryScreen: FC = () => {
+import FormSearchPrice from "../../../components/client/FormSearchPrice/FormSearchPrice";
+
+const ListScreen: FC = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { categoryId } = useParams<{ categoryId: string }>();
 
-  const [age, setAge] = useState("10");
+  const [sortQuery, setSortQuery] = useState(SortQueryEnum.CREATED_AT_DESC);
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState<CategoryDef | null>(null);
   const [products, setProducts] = useState<ProductDef[]>([]);
   const [total, setTotal] = useState(0);
   const [layout, setLayout] = useState<LayoutsEnum>(LayoutsEnum.GRID);
+  const [queries, setQueries] = useQueryState(initialQueries);
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+  const changeSortQuery = (event: SelectChangeEvent) => {
+    const newSortQuery = event.target.value as SortQueryEnum;
+
+    setSortQuery(newSortQuery);
+    setQueries({
+      ...queries,
+      sort: newSortQuery,
+    });
+  };
+
+  const changePage = (event: React.ChangeEvent<unknown>, page: number) => {
+    setQueries({
+      ...queries,
+      page,
+    });
+  };
+
+  const searchByPrice = (startPrice: number, endPrice: number) => {
+    setQueries({
+      ...queries,
+      startPrice,
+      endPrice,
+    });
   };
 
   useEffect(() => {
@@ -67,7 +91,7 @@ const CategoryScreen: FC = () => {
 
   useEffect(() => {
     if (categoryId) {
-      dispatch(getProductList({ categoryId, page: 1, perPage: 9 }))
+      dispatch(getProductList({ categoryId, ...queries }))
         .then(unwrapResult)
         .then(res => {
           setProducts(res.list);
@@ -75,7 +99,7 @@ const CategoryScreen: FC = () => {
         })
         .finally(() => setIsLoading(false));
     }
-  }, [categoryId, dispatch]);
+  }, [categoryId, dispatch, queries]);
 
   if (isLoading) {
     return <Loader />;
@@ -83,7 +107,7 @@ const CategoryScreen: FC = () => {
 
   return (
     <Container>
-      <Box mt={2} mb={4}>
+      <Box sx={{ mt: 2, mb: 4 }}>
         <Breadcrumbs aria-label="breadcrumb">
           <CustomLink to="/">{t("common.Home", { ns: "client" })}</CustomLink>
           <Typography color="text.primary">{category?.title}</Typography>
@@ -91,61 +115,10 @@ const CategoryScreen: FC = () => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12} md={3}>
-          <Formik
-            initialValues={initialValuesSort}
-            onSubmit={() => {
-              // TODO:
-            }}
-          >
-            <Form>
-              <Box
-                sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}
-              >
-                <Typography variant="h6">
-                  {t("common.FILTER BY", { ns: "client" })}
-                </Typography>
-                <Button
-                  size="small"
-                  variant="contained"
-                  startIcon={<FilterListRounded />}
-                >
-                  {t("common.Filter", { ns: "client" })}
-                </Button>
-              </Box>
-              <Box mb={3}>
-                <FormikCheckbox
-                  name="categoryIds"
-                  label="Categories"
-                  options={[
-                    { label: "Cake", value: "1" },
-                    { label: "Milk", value: "2" },
-                  ]}
-                />
-              </Box>
-              <Box mb={3}>
-                <FormikCheckbox
-                  name="sizes"
-                  label="Size"
-                  options={[
-                    { label: "S", value: "1" },
-                    { label: "M", value: "2" },
-                    { label: "L", value: "3" },
-                    { label: "XL", value: "4" },
-                  ]}
-                />
-              </Box>
-              <Box mb={3}>
-                <FormikCheckbox
-                  name="brands"
-                  label="Brand"
-                  options={[
-                    { label: "Studio Design", value: "1" },
-                    { label: "Graphic Corner", value: "2" },
-                  ]}
-                />
-              </Box>
-            </Form>
-          </Formik>
+          <Typography variant="h6" sx={{ mb: 3 }}>
+            {t("common.FILTER BY", { ns: "client" })}
+          </Typography>
+          <FormSearchPrice searchByPrice={searchByPrice} />
         </Grid>
         <Grid item xs={12} md={9}>
           <Box
@@ -192,15 +165,16 @@ const CategoryScreen: FC = () => {
               <Select
                 labelId="sortByLabel"
                 id="sortBy"
-                value={age}
+                value={sortQuery}
                 label={`${t("common.Sort by", { ns: "client" })}:`}
-                onChange={handleChange}
+                onChange={changeSortQuery}
                 size="small"
               >
-                <MenuItem value={10}>Name, A to Z</MenuItem>
-                <MenuItem value={20}>Name, Z to A</MenuItem>
-                <MenuItem value={30}>Price, low to high</MenuItem>
-                <MenuItem value={40}>Price, high to low</MenuItem>
+                {SORT_QUERY_OPTIONS.map(item => (
+                  <MenuItem key={item.value} value={item.value}>
+                    {item.label}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
           </Box>
@@ -222,9 +196,14 @@ const CategoryScreen: FC = () => {
                 </Box>
               )}
 
-              {total > 9 && (
+              {total > DEFAULT_PER_PAGE && (
                 <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
-                  <Pagination count={products.length} color="primary" />
+                  <Pagination
+                    count={total}
+                    color="primary"
+                    siblingCount={5}
+                    onChange={changePage}
+                  />
                 </Box>
               )}
             </>
@@ -237,4 +216,4 @@ const CategoryScreen: FC = () => {
   );
 };
 
-export default memo(CategoryScreen);
+export default ListScreen;

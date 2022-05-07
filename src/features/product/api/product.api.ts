@@ -5,11 +5,15 @@ import {
   ProductEndpointsEnum,
   ProductRequest,
   ProductParams,
+  DEFAULT_PER_PAGE,
 } from "features/product/product";
 
 const getProductListApi = (params: ProductParams): Promise<AxiosResponse> => {
   return api.get(ProductEndpointsEnum.GET_ALL, {
-    params,
+    params: {
+      ...params,
+      perPage: DEFAULT_PER_PAGE,
+    },
   });
 };
 

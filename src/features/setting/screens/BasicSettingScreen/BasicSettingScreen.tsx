@@ -10,6 +10,7 @@ import StickyHeader from "components/EditComponents/StickyHeader";
 import FormikTextField from "components/FormElements/FormikTextField/FormikTextField";
 import Loader from "components/Loader/Loader";
 import UploadImage from "components/UploadImage/UploadImage";
+import { AspectRatioEnum } from "constants/common.constants";
 import {
   getSettingPage,
   postSettingPage,
@@ -98,9 +99,19 @@ const BasicSettingScreen: FC = () => {
               />
             </Box>
 
-            <UploadImage name="favicon" label="Favicon" width={150} />
+            <UploadImage
+              name="favicon"
+              label="Favicon"
+              width={150}
+              cropAspectRatio={AspectRatioEnum.ONE_TO_ONE}
+            />
 
-            <UploadImage name="thumbnail" label="Thumbnail" width={200} />
+            <UploadImage
+              name="thumbnail"
+              label="Thumbnail"
+              width={200}
+              cropAspectRatio={AspectRatioEnum.ONE_TO_ONE}
+            />
 
             <Box mb={3}>
               <FormikTextField

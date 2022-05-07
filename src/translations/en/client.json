@@ -77,7 +77,8 @@
     "My order": "My order",
     "Logout": "Logout",
     "Cancel order": "Cancel order",
-    "View detail": "View detail"
+    "View detail": "View detail",
+    "Admin": "Admin"
   },
   "nav": {
     "home": "HOME",

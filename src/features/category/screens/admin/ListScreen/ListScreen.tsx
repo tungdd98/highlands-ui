@@ -28,6 +28,8 @@ const ListScreen: FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [queries, setQueries] = useState<CategoryParams>(searchInitialValues);
 
+  console.log(isSubmitting);
+
   useEffect(() => {
     dispatch(getCategoryList(queries)).finally(() => {
       setIsLoading(false);

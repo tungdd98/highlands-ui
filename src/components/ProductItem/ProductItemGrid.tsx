@@ -13,6 +13,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { differenceInDays } from "date-fns";
 import { compile } from "path-to-regexp";
 import { useTranslation } from "react-i18next";
 
@@ -28,6 +29,7 @@ import {
   ProductPathsEnum,
   ProductDef,
   setQuickProduct,
+  DAYS_NEW_PRODUCT,
 } from "features/product/product";
 import { toCurrency } from "helpers/converts/currency";
 import { displaySnackbar } from "redux/snackbar.slice";
@@ -52,12 +54,15 @@ type ProductItemGridProps = ProductDef;
 const ProductItemGrid: FC<ProductItemGridProps> = props => {
   const { t } = useTranslation();
 
-  const { thumbnail, title, price, id, quantity } = props;
+  const { thumbnail, title, price, id, quantity, createdAt } = props;
 
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector(state => state.checkout);
 
   const [isShowControl, setIsShowControl] = useState(false);
+
+  const isNewProduct =
+    differenceInDays(new Date(), new Date(createdAt)) <= DAYS_NEW_PRODUCT;
 
   const handleSetQuickProduct = () => {
     dispatch(setQuickProduct(props));
@@ -131,9 +136,11 @@ const ProductItemGrid: FC<ProductItemGridProps> = props => {
             </Stack>
           </ProductItemControlStyled>
         </Fade>
-        <Box sx={{ position: "absolute", zIndex: 99, top: 10, left: 10 }}>
-          <Chip label="New" color="primary" size="small" />
-        </Box>
+        {isNewProduct && (
+          <Box sx={{ position: "absolute", zIndex: 99, top: 10, left: 10 }}>
+            <Chip label="New" color="primary" size="small" />
+          </Box>
+        )}
       </Box>
 
       <Box sx={{ px: 2, pb: 1 }}>

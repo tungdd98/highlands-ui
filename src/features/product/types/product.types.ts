@@ -1,4 +1,8 @@
-import { ProductIsHotEnum, ProductStatusEnum } from "./product.enums";
+import {
+  ProductIsHotEnum,
+  ProductStatusEnum,
+  SortQueryEnum,
+} from "./product.enums";
 
 export interface ProductDef {
   id: number;
@@ -24,6 +28,9 @@ export interface ProductParams
   categoryId?: number | string;
   page: number;
   perPage?: number;
+  sort?: SortQueryEnum;
+  startPrice?: number;
+  endPrice?: number;
 }
 
 export interface ProductRequest {
