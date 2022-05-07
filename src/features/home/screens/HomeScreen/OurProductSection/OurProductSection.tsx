@@ -42,13 +42,13 @@ const OurProductSection: FC = () => {
   }, [dispatch, tabIndex]);
 
   return (
-    <Box my={5}>
+    <Box sx={{ my: 5 }}>
       <Container maxWidth="lg">
-        <Box mb={5} textAlign="center">
-          <Typography variant="h4" fontWeight={600}>
+        <Box sx={{ mb: 5, textAlign: "center" }}>
+          <Typography variant="h4" sx={{ fontWeight: 600 }}>
             {t("common.Our Products", { ns: "client" })}
           </Typography>
-          <Typography variant="body2" color="grey.500" mb={3}>
+          <Typography variant="body2" color="grey.500" sx={{ mb: 3 }}>
             {t("common.Text dummy 1", { ns: "client" })}
           </Typography>
         </Box>
@@ -60,7 +60,7 @@ const OurProductSection: FC = () => {
           ))}
         </Tabs>
 
-        <Box mt={5}>
+        <Box sx={{ mt: 5 }}>
           {products.length ? (
             <CustomSwiper
               hasMargin
@@ -84,7 +84,7 @@ const OurProductSection: FC = () => {
               ))}
             </CustomSwiper>
           ) : (
-            <Typography textAlign="center">
+            <Typography sx={{ textAlign: "center" }}>
               {t("common.No products", { ns: "client" })}
             </Typography>
           )}

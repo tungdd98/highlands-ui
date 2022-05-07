@@ -6,7 +6,6 @@ import { omit } from "lodash";
 import { useTranslation } from "react-i18next";
 
 import FormikSelect from "components/FormElements/FormikSelect/FormikSelect";
-import FormikSwitch from "components/FormElements/FormikSwitch/FormikSwitch";
 import FormikTextField from "components/FormElements/FormikTextField/FormikTextField";
 import {
   CATEGORY_OPTIONS,
@@ -74,9 +73,6 @@ const FormSearch: FC<FormSearchProps> = ({
                 />
               </Grid>
             </Grid>
-            <Box sx={{ mt: 1 }}>
-              <FormikSwitch name="status" />
-            </Box>
             <Box sx={{ textAlign: "right", mt: 2 }}>
               <Button
                 variant="contained"

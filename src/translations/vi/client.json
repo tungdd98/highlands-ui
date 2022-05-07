@@ -70,7 +70,14 @@
     "item": "sản phẩm",
     "Grid": "Dạng lưới",
     "List": "Dạng danh sách",
-    "About": "About"
+    "About": "About",
+    "Name, A to Z": "Tên sản phẩm, A - Z",
+    "Name, Z to A": "Tên sản phẩm, Z to A",
+    "Price, low to high": "Giá, thấp tới cao",
+    "Price, high to low": "Giá, cao tới thấp",
+    "Oldest creation date": "Ngày tạo cũ nhất",
+    "Latest creation date": "Ngày tạo mới nhất",
+    "New": "Mới!"
   },
   "menu": {
     "Profile": "Thông tin cá nhân",
@@ -81,11 +88,11 @@
     "Admin": "Admin"
   },
   "nav": {
-    "home": "Trang chủ",
-    "about": "Giới thiệu",
-    "products": "Sản phẩm",
-    "articles": "Tin tức",
-    "contact": "Liên hệ"
+    "home": "TRANG CHỦ",
+    "about": "GIỚI THIỆU",
+    "products": "SẢN PHẨM",
+    "articles": "TIN TỨC",
+    "contact": "LIÊN HỆ"
   },
   "footer": {
     "Store Information": "Thông tin cửa hàng",
@@ -113,6 +120,7 @@
     "Deliver To This Address": "Vận chuyển tới địa chỉ này",
     "Complete Order": "Xác nhận đơn hàng",
     "Download as Pdf": "Download Pdf",
-    "Go to my order": "Go to my order"
+    "Go to my order": "Go to my order",
+    "Search By Price": "Tìm kiếm theo giá"
   }
 }

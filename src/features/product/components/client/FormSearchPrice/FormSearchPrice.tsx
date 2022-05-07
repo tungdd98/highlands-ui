@@ -1,6 +1,7 @@
 import React, { FC, memo, useState } from "react";
 
 import { Box, Button, Slider, Stack, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import {
   DEFAULT_SEARCH_PRICE,
@@ -13,11 +14,13 @@ interface FormSearchPriceProps {
 }
 
 const FormSearchPrice: FC<FormSearchPriceProps> = ({ searchByPrice }) => {
+  const { t } = useTranslation();
+
   const [prices, setPrices] = useState<number[]>(initialQueriesSearchPrice);
 
   const [minPrice, maxPrice] = prices;
 
-  const handlesearchByPrice = () => {
+  const handleSearchByPrice = () => {
     searchByPrice(minPrice, maxPrice);
   };
 
@@ -27,7 +30,9 @@ const FormSearchPrice: FC<FormSearchPriceProps> = ({ searchByPrice }) => {
 
   return (
     <Box sx={{ mb: 3 }}>
-      <Typography sx={{ fontWeight: 600 }}>Price</Typography>
+      <Typography sx={{ fontWeight: 600 }}>
+        {t("common.Price", { ns: "client" })}
+      </Typography>
 
       <Slider
         getAriaLabel={() => "Temperature range"}
@@ -49,9 +54,9 @@ const FormSearchPrice: FC<FormSearchPriceProps> = ({ searchByPrice }) => {
         variant="contained"
         size="small"
         sx={{ mt: 2 }}
-        onClick={handlesearchByPrice}
+        onClick={handleSearchByPrice}
       >
-        Search By Price
+        {t("button.Search By Price", { ns: "client" })}
       </Button>
     </Box>
   );

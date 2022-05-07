@@ -12,7 +12,7 @@ const getProductListApi = (params: ProductParams): Promise<AxiosResponse> => {
   return api.get(ProductEndpointsEnum.GET_ALL, {
     params: {
       ...params,
-      perPage: DEFAULT_PER_PAGE,
+      perPage: params.perPage || DEFAULT_PER_PAGE,
     },
   });
 };

@@ -33,7 +33,6 @@ import {
   getProductList,
   ProductDef,
   LayoutsEnum,
-  DEFAULT_PER_PAGE,
   initialQueries,
   SORT_QUERY_OPTIONS,
   SortQueryEnum,
@@ -45,6 +44,7 @@ import FormSearchPrice from "../../../components/client/FormSearchPrice/FormSear
 
 const ListScreen: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { categoryId } = useParams<{ categoryId: string }>();
 
@@ -52,7 +52,7 @@ const ListScreen: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState<CategoryDef | null>(null);
   const [products, setProducts] = useState<ProductDef[]>([]);
-  const [total, setTotal] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [layout, setLayout] = useState<LayoutsEnum>(LayoutsEnum.GRID);
   const [queries, setQueries] = useQueryState(initialQueries);
 
@@ -95,7 +95,7 @@ const ListScreen: FC = () => {
         .then(unwrapResult)
         .then(res => {
           setProducts(res.list);
-          setTotal(res.totalItems);
+          setTotalPages(res.totalPages);
         })
         .finally(() => setIsLoading(false));
     }
@@ -164,7 +164,6 @@ const ListScreen: FC = () => {
               </InputLabel>
               <Select
                 labelId="sortByLabel"
-                id="sortBy"
                 value={sortQuery}
                 label={`${t("common.Sort by", { ns: "client" })}:`}
                 onChange={changeSortQuery}
@@ -172,7 +171,7 @@ const ListScreen: FC = () => {
               >
                 {SORT_QUERY_OPTIONS.map(item => (
                   <MenuItem key={item.value} value={item.value}>
-                    {item.label}
+                    {t(`common.${item.label}`, { ns: "client" })}
                   </MenuItem>
                 ))}
               </Select>
@@ -196,10 +195,10 @@ const ListScreen: FC = () => {
                 </Box>
               )}
 
-              {total > DEFAULT_PER_PAGE && (
+              {totalPages > 1 && (
                 <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
                   <Pagination
-                    count={total}
+                    count={totalPages}
                     color="primary"
                     siblingCount={5}
                     onChange={changePage}

@@ -7,8 +7,10 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
+import CustomLink from "components/CustomLink/CustomLink";
 import FormikTextField from "components/FormElements/FormikTextField/FormikTextField";
 import {
+  AuthPathsEnum,
   loginInitialValues,
   LoginRequest,
   loginSchema,
@@ -36,12 +38,13 @@ const LoginScreen: FC = () => {
 
   return (
     <Paper elevation={10} sx={{ px: 3, py: 5, width: "100%" }}>
-      <Box textAlign="center">
+      <Box sx={{ textAlign: "center" }}>
         <AcUnitRounded fontSize="large" color="primary" />
-        <Typography variant="h5" fontWeight={600}>
+        <Typography variant="h5" sx={{ fontWeight: 600 }}>
           {t("common.Login", { ns: "admin" })}
         </Typography>
       </Box>
+
       <Formik
         initialValues={loginInitialValues}
         validationSchema={loginSchema}
@@ -49,7 +52,7 @@ const LoginScreen: FC = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="email"
                 type="email"
@@ -58,12 +61,12 @@ const LoginScreen: FC = () => {
                 fullWidth
               />
             </Box>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="password"
                 type="password"
                 label="Password"
-                placeholder="********"
+                placeholder="Password"
                 fullWidth
               />
             </Box>
@@ -80,6 +83,13 @@ const LoginScreen: FC = () => {
           </Form>
         )}
       </Formik>
+
+      <CustomLink
+        sx={{ mt: 3, color: "primary.main" }}
+        to={AuthPathsEnum.REGISTER}
+      >
+        {t("button.Create new account", { ns: "admin" })}
+      </CustomLink>
     </Paper>
   );
 };

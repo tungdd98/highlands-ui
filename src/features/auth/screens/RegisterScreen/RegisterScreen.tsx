@@ -8,6 +8,7 @@ import { omit } from "lodash";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
+import CustomLink from "components/CustomLink/CustomLink";
 import FormikTextField from "components/FormElements/FormikTextField/FormikTextField";
 import {
   AuthPathsEnum,
@@ -39,12 +40,13 @@ const RegisterScreen: FC = () => {
 
   return (
     <Paper elevation={10} sx={{ px: 3, py: 5, width: "100%" }}>
-      <Box textAlign="center">
+      <Box sx={{ textAlign: "center" }}>
         <AcUnitRounded fontSize="large" color="primary" />
-        <Typography variant="h5" fontWeight={600}>
+        <Typography variant="h5" sx={{ fontWeight: 600 }}>
           {t("label.Register", { ns: "admin" })}
         </Typography>
       </Box>
+
       <Formik
         initialValues={registerInitialValues}
         validationSchema={registerSchema}
@@ -52,7 +54,7 @@ const RegisterScreen: FC = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="email"
                 type="email"
@@ -61,7 +63,7 @@ const RegisterScreen: FC = () => {
                 fullWidth
               />
             </Box>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="name"
                 label="Name"
@@ -69,7 +71,7 @@ const RegisterScreen: FC = () => {
                 fullWidth
               />
             </Box>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="password"
                 type="password"
@@ -78,7 +80,7 @@ const RegisterScreen: FC = () => {
                 fullWidth
               />
             </Box>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="confirmPassword"
                 type="password"
@@ -100,6 +102,13 @@ const RegisterScreen: FC = () => {
           </Form>
         )}
       </Formik>
+
+      <CustomLink
+        sx={{ mt: 3, color: "primary.main" }}
+        to={AuthPathsEnum.LOGIN}
+      >
+        {t("button.Login", { ns: "admin" })}
+      </CustomLink>
     </Paper>
   );
 };

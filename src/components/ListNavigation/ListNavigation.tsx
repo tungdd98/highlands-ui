@@ -2,6 +2,7 @@ import React, { FC, memo } from "react";
 
 import { DeleteRounded, EditRounded } from "@mui/icons-material";
 import { ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 interface ListNavigationProps {
   anchorEl: null | HTMLElement;
@@ -16,6 +17,8 @@ const ListNavigation: FC<ListNavigationProps> = ({
   handleOpenDeleteDialog,
   handleRedirectEditPage,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Menu
       anchorEl={anchorEl}
@@ -34,13 +37,13 @@ const ListNavigation: FC<ListNavigationProps> = ({
         <ListItemIcon>
           <EditRounded color="info" fontSize="small" />
         </ListItemIcon>
-        <ListItemText>Edit</ListItemText>
+        <ListItemText>{t("button.Edit", { ns: "admin" })}</ListItemText>
       </MenuItem>
       <MenuItem onClick={handleOpenDeleteDialog}>
         <ListItemIcon>
           <DeleteRounded color="error" fontSize="small" />
         </ListItemIcon>
-        <ListItemText>Delete</ListItemText>
+        <ListItemText>{t("button.Delete", { ns: "admin" })}</ListItemText>
       </MenuItem>
     </Menu>
   );

@@ -30,11 +30,12 @@ const FormSearch: FC<FormSearchProps> = ({
   };
 
   return (
-    <Box p={3} component={Paper} mb={4} elevation={3}>
+    <Box sx={{ p: 3, mb: 4 }} component={Paper} elevation={3}>
       <Typography variant="h5">
         {t("button.Search", { ns: "admin" })}
       </Typography>
-      <Box mt={3}>
+
+      <Box sx={{ mt: 3 }}>
         <Formik
           validationSchema={searchSchema}
           initialValues={queries}
@@ -59,7 +60,7 @@ const FormSearch: FC<FormSearchProps> = ({
                 />
               </Grid>
             </Grid>
-            <Box textAlign="right" mt={2}>
+            <Box sx={{ textAlign: "right", mt: 2 }}>
               <Button
                 variant="contained"
                 color="secondary"

@@ -6,8 +6,8 @@ export const loginSchema = yup.object().shape({
 });
 
 export const loginInitialValues = {
-  email: "admin@gmail.com",
-  password: "123456789",
+  email: "",
+  password: "",
 };
 
 export const registerSchema = yup.object().shape({

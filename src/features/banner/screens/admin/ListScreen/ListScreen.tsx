@@ -42,10 +42,12 @@ const ListScreen: FC = () => {
   return (
     <>
       <Box
-        display="flex"
-        py={3}
-        alignItems="center"
-        justifyContent="space-between"
+        sx={{
+          display: "flex",
+          py: 3,
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
         <Typography variant="h5">
           {t("common.Manage", { ns: "admin" })}&nbsp;
@@ -79,7 +81,7 @@ const ListScreen: FC = () => {
           setQueries={setQueries}
         />
       ) : (
-        <Typography>No data</Typography>
+        <Typography>{t("common.No data", { ns: "admin" })}</Typography>
       )}
     </>
   );

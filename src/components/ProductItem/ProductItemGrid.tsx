@@ -138,7 +138,11 @@ const ProductItemGrid: FC<ProductItemGridProps> = props => {
         </Fade>
         {isNewProduct && (
           <Box sx={{ position: "absolute", zIndex: 99, top: 10, left: 10 }}>
-            <Chip label="New" color="primary" size="small" />
+            <Chip
+              label={t("common.New", { ns: "client" })}
+              color="primary"
+              size="small"
+            />
           </Box>
         )}
       </Box>
@@ -164,7 +168,10 @@ const ProductItemGrid: FC<ProductItemGridProps> = props => {
           }}
         >
           <Rating value={5} readOnly size="small" />
-          <Typography fontWeight={600} color="primary.main" fontSize={20}>
+          <Typography
+            sx={{ fontWeight: 600, fontSize: 20 }}
+            color="primary.main"
+          >
             {toCurrency(price)}
           </Typography>
         </Box>

@@ -13,7 +13,7 @@ const AboutScreen: FC = () => {
 
   return (
     <Container>
-      <Box mt={2} mb={4}>
+      <Box sx={{ mt: 2, mb: 4 }}>
         <Breadcrumbs aria-label="breadcrumb">
           <CustomLink to="/">{t("common.Home", { ns: "client" })}</CustomLink>
           <Typography color="text.primary">

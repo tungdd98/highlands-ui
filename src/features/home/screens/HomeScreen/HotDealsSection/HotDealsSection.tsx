@@ -29,10 +29,10 @@ const HotDealsSection: FC = () => {
   }, [dispatch]);
 
   return (
-    <Box mb={5}>
+    <Box sx={{ mb: 5 }}>
       <Container maxWidth="lg">
-        <Box mb={5} textAlign="center">
-          <Typography variant="h4" fontWeight={600}>
+        <Box sx={{ mb: 5, textAlign: "center" }}>
+          <Typography variant="h4" sx={{ fontWeight: 600 }}>
             {t("common.Hot Deals", { ns: "client" })}
           </Typography>
           <Typography variant="body2" color="grey.500">
@@ -58,7 +58,7 @@ const HotDealsSection: FC = () => {
             </Grid>
           </Grid>
         ) : (
-          <Typography textAlign="center">
+          <Typography sx={{ textAlign: "center" }}>
             {t("common.No products", { ns: "client" })}
           </Typography>
         )}

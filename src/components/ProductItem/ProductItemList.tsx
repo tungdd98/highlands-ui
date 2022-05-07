@@ -82,7 +82,11 @@ const ProductItemList: FC<ProductItemListProps> = props => {
           />
           {isNewProduct && (
             <Box sx={{ position: "absolute", zIndex: 99, top: 10, left: 10 }}>
-              <Chip label="New" color="primary" size="small" />
+              <Chip
+                label={t("common.New", { ns: "client" })}
+                color="primary"
+                size="small"
+              />
             </Box>
           )}
         </Box>
@@ -100,10 +104,13 @@ const ProductItemList: FC<ProductItemListProps> = props => {
           {title}
         </CustomLink>
         <Rating value={5} readOnly size="small" />
-        <Typography fontWeight={600} color="primary.main" fontSize={20} mb={2}>
+        <Typography
+          sx={{ fontWeight: 600, fontSize: 20, mb: 2 }}
+          color="primary.main"
+        >
           {toCurrency(price)}
         </Typography>
-        <Typography color="grey.500" mb={2}>
+        <Typography sx={{ mb: 2 }} color="grey.500">
           {include}
         </Typography>
         <Stack direction="row" spacing={2}>

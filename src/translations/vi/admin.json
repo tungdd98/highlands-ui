@@ -13,7 +13,8 @@
     "Updated success": "Cập nhật thành công!",
     "Something error": "Có lỗi xảy ra",
     "Add product success": "Thêm sản phẩm vào giỏ",
-    "Over product": "Vượt quá số lượng còn lại của sản phẩm"
+    "Over product": "Vượt quá số lượng còn lại của sản phẩm",
+    "No data": "Không có dữ liệu."
   },
   "sidebar": {
     "Dashboard": "Dashboard",
@@ -42,7 +43,9 @@
     "Upload": "Tải lên",
     "Crop image": "Cắt ảnh",
     "Login": "Đăng nhập",
-    "Create new account": "Tạo tài khoản"
+    "Create new account": "Tạo tài khoản",
+    "Edit": "Cập nhật",
+    "Delete": "Xoá"
   },
   "label": {
     "ID": "ID",

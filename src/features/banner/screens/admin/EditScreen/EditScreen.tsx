@@ -106,7 +106,7 @@ const EditScreen: FC = () => {
           />
 
           <ContentWrapper>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="title"
                 label="Title"
@@ -117,7 +117,7 @@ const EditScreen: FC = () => {
 
             <UploadImage name="thumbnail" label="Thumbnail" />
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="link"
                 label="Link"
@@ -126,7 +126,7 @@ const EditScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikSelect
                 name="status"
                 label="Status"

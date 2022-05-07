@@ -1,5 +1,15 @@
 import FlagEn from "assets/images/flag-en.png";
 import FlagVi from "assets/images/flag-vi.png";
+import ImageProduct1 from "assets/images/products/product1.webp";
+import ImageProduct10 from "assets/images/products/product10.webp";
+import ImageProduct2 from "assets/images/products/product2.webp";
+import ImageProduct3 from "assets/images/products/product3.webp";
+import ImageProduct4 from "assets/images/products/product4.webp";
+import ImageProduct5 from "assets/images/products/product5.webp";
+import ImageProduct6 from "assets/images/products/product6.webp";
+import ImageProduct7 from "assets/images/products/product7.webp";
+import ImageProduct8 from "assets/images/products/product8.webp";
+import ImageProduct9 from "assets/images/products/product9.webp";
 import { LanguageOption } from "types/app.types";
 
 export enum ModesScreenEnum {
@@ -30,9 +40,16 @@ export enum AspectRatioEnum {
 }
 
 export const RANDOM_IMAGES_ERROR = [
-  "https://images.pexels.com/photos/11334016/pexels-photo-11334016.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  "https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  "https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  ImageProduct1,
+  ImageProduct2,
+  ImageProduct3,
+  ImageProduct4,
+  ImageProduct5,
+  ImageProduct6,
+  ImageProduct7,
+  ImageProduct8,
+  ImageProduct9,
+  ImageProduct10,
 ];
 
 export const LANGUAGE_OPTIONS: LanguageOption[] = [

@@ -13,7 +13,8 @@
     "Updated success": "Updated success",
     "Something error": "Something error",
     "Add product success": "Add success",
-    "Over product": "Over product"
+    "Over product": "Over product",
+    "No data": "No data"
   },
   "sidebar": {
     "Dashboard": "Dashboard",
@@ -42,7 +43,9 @@
     "Upload": "Upload",
     "Crop image": "Crop image",
     "Login": "Login",
-    "Create new account": "Create new account"
+    "Create new account": "Create new account",
+    "Edit": "Edit",
+    "Delete": "Delete"
   },
   "label": {
     "ID": "ID",

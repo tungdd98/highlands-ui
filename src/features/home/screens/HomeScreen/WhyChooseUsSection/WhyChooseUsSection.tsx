@@ -21,31 +21,59 @@ const WhyChooseUsSection: FC = () => {
       <Container maxWidth="lg">
         <Box component={Paper} elevation={4} p={5}>
           <Box mb={5}>
-            <Typography variant="h4" fontWeight={600} mb={3}>
+            <Typography variant="h4" sx={{ fontWeight: 600, mb: 3 }}>
               {t("common.Why Choose Us", { ns: "client" })}
             </Typography>
-            <Typography variant="body2" color="grey.500" mb={3}>
+            <Typography variant="body2" color="grey.500" sx={{ mb: 3 }}>
               {t("common.Text dummy 4", { ns: "client" })}
             </Typography>
           </Box>
           <Stack>
-            <Box borderBottom={1} borderTop={1} borderColor="divider" py={2}>
-              <Typography fontWeight={500}>
+            <Box
+              sx={{
+                borderBottom: 1,
+                borderTop: 1,
+                borderColor: "divider",
+                py: 2,
+              }}
+            >
+              <Typography sx={{ fontWeight: 500 }}>
                 {t("common.100% Organic!", { ns: "client" })}
               </Typography>
             </Box>
-            <Box borderBottom={1} borderColor="divider" py={2}>
-              <Typography fontWeight={500}>
+            <Box
+              sx={{
+                borderBottom: 1,
+                borderTop: 1,
+                borderColor: "divider",
+                py: 2,
+              }}
+            >
+              <Typography sx={{ fontWeight: 500 }}>
                 {t("common.Fast Free Delivery", { ns: "client" })}
               </Typography>
             </Box>
-            <Box borderBottom={1} borderColor="divider" py={2}>
-              <Typography fontWeight={500}>
+            <Box
+              sx={{
+                borderBottom: 1,
+                borderTop: 1,
+                borderColor: "divider",
+                py: 2,
+              }}
+            >
+              <Typography sx={{ fontWeight: 500 }}>
                 {t("common.Best Shopping Startegies", { ns: "client" })}
               </Typography>
             </Box>
-            <Box borderBottom={1} borderColor="divider" py={2}>
-              <Typography fontWeight={500}>
+            <Box
+              sx={{
+                borderBottom: 1,
+                borderTop: 1,
+                borderColor: "divider",
+                py: 2,
+              }}
+            >
+              <Typography sx={{ fontWeight: 500 }}>
                 {t("common.More than 15 Years in the business", {
                   ns: "client",
                 })}
