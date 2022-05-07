@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import OrderComplete from "assets/images/order-complete.png";
 import { removeOrderSuccess } from "features/checkout/checkout";
 import { HomePathsEnum } from "features/home/home";
+import { ProfilePathsEnum } from "features/profile/profile";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
 interface CompleteOrderDialogProps {
@@ -32,6 +33,11 @@ const CompleteOrderDialog: FC<CompleteOrderDialogProps> = ({ open }) => {
     history.push(HomePathsEnum.HOME);
   };
 
+  const handleRedirectMyOrder = () => {
+    dispatch(removeOrderSuccess());
+    history.push(ProfilePathsEnum.MY_ORDER);
+  };
+
   if (!orderSuccess) {
     return null;
   }
@@ -39,28 +45,29 @@ const CompleteOrderDialog: FC<CompleteOrderDialogProps> = ({ open }) => {
   return (
     <Dialog open={open} fullScreen keepMounted fullWidth>
       <DialogContent>
-        <Typography variant="h5" fontWeight={700} textAlign="center">
+        <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center" }}>
           {t("common.Thank you for your purchase!", { ns: "client" })}
         </Typography>
-        <Box maxWidth={400} mx="auto">
+
+        <Box sx={{ maxWidth: 400, mx: "auto" }}>
           <img width="100%" src={OrderComplete} alt="logo" />
-          <Typography mb={3}>
+          <Typography sx={{ mb: 3 }}>
             {t("common.Thanks for placing order", { ns: "client" })}{" "}
             {orderSuccess.id}
           </Typography>
-          <Typography mb={3}>
+          <Typography sx={{ mb: 3 }}>
             {t(
               "common.We will send you a notification within 5 days when it ships.",
               { ns: "client" }
             )}
           </Typography>
-          <Typography mb={3}>
+          <Typography sx={{ mb: 3 }}>
             {t(
               "common.If you have any question or queries then fell to get in contact us.",
               { ns: "client" }
             )}
           </Typography>
-          <Typography mb={3}>
+          <Typography sx={{ mb: 3 }}>
             {t("common.All the best.", { ns: "client" })}
           </Typography>
           <Divider />
@@ -79,6 +86,7 @@ const CompleteOrderDialog: FC<CompleteOrderDialogProps> = ({ open }) => {
               variant="contained"
               color="success"
               startIcon={<LocalMallRounded />}
+              onClick={handleRedirectMyOrder}
             >
               {t("button.Go to my order", { ns: "client" })}
             </Button>
