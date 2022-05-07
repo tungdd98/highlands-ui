@@ -59,7 +59,7 @@ const FormSearch: FC<FormSearchProps> = ({
               <Grid item xs={12} sm={4}>
                 <FormikTextField
                   name="title"
-                  label={t("label.Title", { ns: "admin" })}
+                  label="Title"
                   placeholder="example"
                   fullWidth
                 />

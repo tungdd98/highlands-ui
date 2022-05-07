@@ -77,7 +77,8 @@
     "Price, high to low": "Price, high to low",
     "Oldest creation date": "Oldest creation date",
     "Latest creation date": "Latest creation date",
-    "New": "New"
+    "New": "New",
+    "Product": "Product"
   },
   "menu": {
     "Profile": "Profile",
@@ -121,6 +122,8 @@
     "Complete Order": "Complete Order",
     "Download as Pdf": "Download as Pdf",
     "Go to my order": "Go to my order",
-    "Search By Price": "Search By Price"
+    "Search By Price": "Search By Price",
+    "Add new address": "Add new address",
+    "Cancel": "Cancel"
   }
 }

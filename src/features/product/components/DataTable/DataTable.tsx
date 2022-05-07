@@ -50,8 +50,9 @@ const DataTable: FC<DataTableProps> = ({
   setQueries,
 }) => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
   const history = useHistory();
+
+  const dispatch = useAppDispatch();
 
   const [isOpenDeleteDialog, setIsOpenDeleteDialog] = useState(false);
   const [selectedRow, setSelectedRow] = useState<ProductDef | null>(null);
@@ -188,7 +189,7 @@ const DataTable: FC<DataTableProps> = ({
         open={isOpenDeleteDialog}
         onClose={() => setIsOpenDeleteDialog(false)}
         onSubmit={handleDeleteProduct}
-        title="Do you want delete record?"
+        title={t("common.Do you want delete record?", { ns: "admin" })}
       />
 
       <ListNavigation

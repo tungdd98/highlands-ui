@@ -17,6 +17,7 @@ import { LanguageOption } from "types/app.types";
 
 const SelectLanguage: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { language } = useAppSelector(state => state.app);
 

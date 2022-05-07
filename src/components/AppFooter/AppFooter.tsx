@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import React, { FC } from "react";
 
 import {
   FacebookRounded,
@@ -18,6 +18,7 @@ import { useAppSelector } from "redux/store";
 
 const AppFooter: FC = () => {
   const { t } = useTranslation();
+
   const { setting } = useAppSelector(state => state.setting);
 
   return (
@@ -140,4 +141,4 @@ const AppFooter: FC = () => {
   );
 };
 
-export default memo(AppFooter);
+export default AppFooter;

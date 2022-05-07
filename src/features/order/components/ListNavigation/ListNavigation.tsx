@@ -28,6 +28,7 @@ const ListNavigation: FC<ListNavigationProps> = ({
   handleOpenDetailDialog,
 }) => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
 
   const disabledStatusConfirm = useMemo(() => {

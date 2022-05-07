@@ -34,11 +34,13 @@ const ConfirmDialog: FC<ConfirmDialogProps> = ({
   return (
     <Dialog open={open} onClose={onClose} maxWidth="md" keepMounted>
       <DialogTitle>{title}</DialogTitle>
+
       {subTitle && (
         <DialogContent>
           <DialogContentText>{subTitle}</DialogContentText>
         </DialogContent>
       )}
+
       <DialogActions>
         <Button onClick={onClose}>
           {t(`button.${textCancel}`, { ns: "admin" })}

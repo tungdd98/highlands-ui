@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ import ListNavigation from "../../../components/ListNavigation/ListNavigation";
 
 const ListScreen: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { orders } = useAppSelector(state => state.order);
 
@@ -75,7 +76,7 @@ const ListScreen: FC = () => {
           handleOpenMenu={handleOpenMenu}
         />
       ) : (
-        <Typography>No data</Typography>
+        <Typography>{t("common.No data", { ns: "admin" })}</Typography>
       )}
 
       <ListNavigation
@@ -94,4 +95,4 @@ const ListScreen: FC = () => {
   );
 };
 
-export default memo(ListScreen);
+export default ListScreen;

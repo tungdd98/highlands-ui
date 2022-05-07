@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { AddRounded } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
@@ -21,6 +21,7 @@ import FormSearch from "../../../components/FormSearch/FormSearch";
 
 const ListScreen: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { categories } = useAppSelector(state => state.category);
 
@@ -87,4 +88,4 @@ const ListScreen: FC = () => {
   );
 };
 
-export default memo(ListScreen);
+export default ListScreen;

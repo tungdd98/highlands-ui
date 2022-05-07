@@ -152,9 +152,7 @@ const ProductItemGrid: FC<ProductItemGridProps> = props => {
           to={compile(ProductPathsEnum.CLIENT_DETAIL)({
             productId: id,
           })}
-          mt={2}
-          mb={1}
-          fontWeight={600}
+          sx={{ mt: 2, mb: 1, fontWeight: 600 }}
           noWrap
         >
           {title}

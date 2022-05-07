@@ -35,6 +35,7 @@ import { useAppDispatch, useAppSelector } from "redux/store";
 
 const QuickViewDialog: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const {
     product: { productQuickView },
@@ -49,6 +50,7 @@ const QuickViewDialog: FC = () => {
 
   const handleAddProductToCart = useCallback(() => {
     if (!productQuickView) return;
+
     if (
       productQuickView.id in carts &&
       carts[productQuickView.id].quantity >= productQuickView.quantity
@@ -108,14 +110,13 @@ const QuickViewDialog: FC = () => {
             />
           </Grid>
           <Grid item xs={12} md={8}>
-            <Typography variant="h5" fontWeight={600} noWrap mb={2}>
+            <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }} noWrap>
               {title}
             </Typography>
             <Typography
               variant="h4"
               color="primary.main"
-              fontWeight={600}
-              mb={2}
+              sx={{ fontWeight: 600, mb: 2 }}
             >
               {toCurrency(price)}
             </Typography>
@@ -128,7 +129,7 @@ const QuickViewDialog: FC = () => {
             <Typography>
               {t("common.Available", { ns: "client" })}: {quantity}
             </Typography>
-            <Box my={3}>
+            <Box sx={{ my: 3 }}>
               <QuantityInput
                 maxQuantity={quantity}
                 value={value}
@@ -148,7 +149,7 @@ const QuickViewDialog: FC = () => {
 
         <Accordion sx={{ mt: 3 }}>
           <AccordionSummary expandIcon={<ExpandMoreRounded />}>
-            <Typography fontWeight={500}>
+            <Typography sx={{ fontWeight: 500 }}>
               {t("common.Description", { ns: "client" })}
             </Typography>
           </AccordionSummary>
@@ -158,9 +159,7 @@ const QuickViewDialog: FC = () => {
         </Accordion>
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMoreRounded />}>
-            <Typography fontWeight={500}>
-              {t("common.Content", { ns: "client" })}
-            </Typography>
+            <Typography>{t("common.Content", { ns: "client" })}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>{content}</Typography>

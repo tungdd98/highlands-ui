@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { Form, Formik, FormikHelpers } from "formik";
+import { useTranslation } from "react-i18next";
 
 import FormikTextField from "components/FormElements/FormikTextField/FormikTextField";
 import { addUserLocation } from "features/auth/auth";
@@ -28,6 +29,8 @@ interface LocationDialogProps {
 }
 
 const LocationDialog: FC<LocationDialogProps> = ({ open, onClose }) => {
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector(state => state.auth);
 
@@ -73,10 +76,11 @@ const LocationDialog: FC<LocationDialogProps> = ({ open, onClose }) => {
           return (
             <Form>
               <DialogTitle sx={{ fontWeight: 600 }}>
-                Add new address
+                {t("button.Add new address", { ns: "client" })}
               </DialogTitle>
+
               <DialogContent>
-                <Box mb={3}>
+                <Box sx={{ mb: 3 }}>
                   <FormikTextField
                     name="name"
                     label="Fullname"
@@ -85,7 +89,7 @@ const LocationDialog: FC<LocationDialogProps> = ({ open, onClose }) => {
                   />
                 </Box>
 
-                <Box mb={3}>
+                <Box sx={{ mb: 3 }}>
                   <FormikTextField
                     name="address"
                     label="Address"
@@ -96,7 +100,7 @@ const LocationDialog: FC<LocationDialogProps> = ({ open, onClose }) => {
                   />
                 </Box>
 
-                <Box mb={3}>
+                <Box sx={{ mb: 3 }}>
                   <FormikTextField
                     name="phone"
                     label="Phone number"
@@ -105,20 +109,21 @@ const LocationDialog: FC<LocationDialogProps> = ({ open, onClose }) => {
                   />
                 </Box>
               </DialogContent>
+
               <DialogActions sx={{ px: 3 }}>
                 <Button
                   variant="contained"
                   type="submit"
                   disabled={helpers.isSubmitting}
                 >
-                  Deliver To This Address
+                  {t("button.Deliver To This Address", { ns: "client" })}
                 </Button>
                 <Button
                   variant="contained"
                   color="secondary"
                   onClick={() => handleClose(helpers)}
                 >
-                  Cancel
+                  {t("button.Cancel", { ns: "client" })}
                 </Button>
               </DialogActions>
             </Form>

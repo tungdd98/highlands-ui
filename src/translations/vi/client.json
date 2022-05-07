@@ -77,7 +77,8 @@
     "Price, high to low": "Giá, cao tới thấp",
     "Oldest creation date": "Ngày tạo cũ nhất",
     "Latest creation date": "Ngày tạo mới nhất",
-    "New": "Mới!"
+    "New": "Mới!",
+    "Product": "Sản phẩm"
   },
   "menu": {
     "Profile": "Thông tin cá nhân",
@@ -121,6 +122,8 @@
     "Complete Order": "Xác nhận đơn hàng",
     "Download as Pdf": "In hoá đơn",
     "Go to my order": "Quản lý đơn hàng",
-    "Search By Price": "Tìm kiếm theo giá"
+    "Search By Price": "Tìm kiếm theo giá",
+    "Add new address": "Thêm mới địa chỉ",
+    "Cancel": "Đóng lại"
   }
 }

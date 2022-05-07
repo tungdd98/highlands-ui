@@ -1,4 +1,4 @@
-import React, { FC, memo, useMemo, useCallback } from "react";
+import React, { FC, useMemo, useCallback } from "react";
 
 import { ArrowBackIosNewRounded } from "@mui/icons-material";
 import {
@@ -45,6 +45,7 @@ const StyledTableHead = styled(TableHead)(({ theme }) => ({
 
 const CartScreen: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { carts, totalQuantity } = useAppSelector(state => state.checkout);
 
@@ -59,7 +60,7 @@ const CartScreen: FC = () => {
 
   return (
     <Container>
-      <Box mt={2} mb={4}>
+      <Box sx={{ mt: 2, mb: 4 }}>
         <Breadcrumbs aria-label="breadcrumb">
           <CustomLink to="/">{t("common.Home", { ns: "client" })}</CustomLink>
           <Typography color="text.primary">
@@ -68,7 +69,7 @@ const CartScreen: FC = () => {
         </Breadcrumbs>
       </Box>
 
-      <Grid container spacing={3} mb={4}>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid item xs={12} md={8}>
           <Stepper activeStep={0} alternativeLabel>
             {CHECKOUT_STEPS.map(label => (
@@ -84,7 +85,7 @@ const CartScreen: FC = () => {
         <Grid item xs={12} md={8}>
           <Paper elevation={6} sx={{ p: 3, mb: 3 }}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Typography variant="h6" fontWeight={600}>
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
                 {t("common.Cart", { ns: "client" })}&nbsp;
               </Typography>
               <Typography>
@@ -95,7 +96,9 @@ const CartScreen: FC = () => {
               <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <StyledTableHead>
                   <TableRow>
-                    <TableCell>Product</TableCell>
+                    <TableCell>
+                      {t("common.Product", { ns: "client" })}
+                    </TableCell>
                     <TableCell>{t("common.Price", { ns: "client" })}</TableCell>
                     <TableCell>
                       {t("common.Quantity", { ns: "client" })}
@@ -153,4 +156,4 @@ const CartScreen: FC = () => {
   );
 };
 
-export default memo(CartScreen);
+export default CartScreen;

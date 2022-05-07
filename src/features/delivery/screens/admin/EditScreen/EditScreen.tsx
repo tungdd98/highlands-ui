@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState, useMemo } from "react";
+import React, { FC, useEffect, useState, useMemo } from "react";
 
 import { Box } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
@@ -25,10 +25,11 @@ import { displaySnackbar } from "redux/snackbar.slice";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
 const EditScreen: FC = () => {
-  const dispatch = useAppDispatch();
   const history = useHistory();
-  const { deliveryDetail } = useAppSelector(state => state.delivery);
   const { deliveryId } = useParams<{ deliveryId: string }>();
+
+  const dispatch = useAppDispatch();
+  const { deliveryDetail } = useAppSelector(state => state.delivery);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -96,7 +97,7 @@ const EditScreen: FC = () => {
           />
 
           <ContentWrapper>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="title"
                 label="Title"
@@ -119,4 +120,4 @@ const EditScreen: FC = () => {
   );
 };
 
-export default memo(EditScreen);
+export default EditScreen;

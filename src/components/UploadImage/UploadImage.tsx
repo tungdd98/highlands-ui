@@ -49,6 +49,7 @@ const UploadImage: FC<UploadImageProps> = ({
   ...props
 }) => {
   const { t } = useTranslation();
+
   const { setFieldValue, values, errors } = useFormikContext<unknown>();
 
   const [open, setOpen] = useState(false);
@@ -125,9 +126,10 @@ const UploadImage: FC<UploadImageProps> = ({
   }, [imageSrc, croppedAreaPixels, rotation, setFieldValue, name]);
 
   return (
-    <Box mb={3} maxWidth={480} {...props}>
+    <Box sx={{ mb: 3, maxWidth: 480 }} {...props}>
       <Dialog open={open} maxWidth="md" keepMounted fullWidth>
-        <DialogTitle>Crop Image</DialogTitle>
+        <DialogTitle>{t("button.Crop Image", { ns: "admin" })}</DialogTitle>
+
         {imageSrc && (
           <DialogContent>
             <Box
@@ -153,8 +155,10 @@ const UploadImage: FC<UploadImageProps> = ({
                 onZoomChange={setZoom}
               />
             </Box>
-            <Box my={1}>
-              <Typography variant="overline">Zoom</Typography>
+            <Box sx={{ my: 1 }}>
+              <Typography variant="overline">
+                {t("button.Zoom", { ns: "admin" })}
+              </Typography>
               <Slider
                 value={zoom}
                 min={1}
@@ -168,7 +172,9 @@ const UploadImage: FC<UploadImageProps> = ({
               />
             </Box>
             <Box>
-              <Typography variant="overline">Rotation</Typography>
+              <Typography variant="overline">
+                {t("button.Rotation", { ns: "admin" })}
+              </Typography>
               <Slider
                 value={rotation}
                 min={1}
@@ -183,6 +189,7 @@ const UploadImage: FC<UploadImageProps> = ({
             </Box>
           </DialogContent>
         )}
+
         <DialogActions>
           <Button onClick={onClose}>
             {t("button.Cancel", { ns: "admin" })}
@@ -192,16 +199,20 @@ const UploadImage: FC<UploadImageProps> = ({
           </Button>
         </DialogActions>
       </Dialog>
+
       {label && (
-        <Typography mb={1} fontWeight="fontWeightMedium">
+        <Typography sx={{ mb: 1, fontWeight: 500 }}>
           <label htmlFor={id || name}>
             {t(`label.${label}`, { ns: "admin" })}
           </label>
         </Typography>
       )}
+
       <PreviewImage src={croppedImage || src} />
+
       {error && <FormHelperText error>{error}</FormHelperText>}
-      <Box mt={2}>
+
+      <Box sx={{ mt: 2 }}>
         <label htmlFor={id || name}>
           <input
             accept="image/*"

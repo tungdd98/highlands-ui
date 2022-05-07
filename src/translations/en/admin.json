@@ -14,7 +14,12 @@
     "Something error": "Something error",
     "Add product success": "Add success",
     "Over product": "Over product",
-    "No data": "No data"
+    "No data": "No data",
+    "Settings system": "Settings system",
+    "Basic settings": "Basic settings",
+    "About Page": "About Page",
+    "Delivery Page": "Delivery Page",
+    "Return Page": "Return Page"
   },
   "sidebar": {
     "Dashboard": "Dashboard",
@@ -45,7 +50,10 @@
     "Login": "Login",
     "Create new account": "Create new account",
     "Edit": "Edit",
-    "Delete": "Delete"
+    "Delete": "Delete",
+    "Crop Image": "Crop Image",
+    "Zoom": "Zoom",
+    "Rotation": "Rotation"
   },
   "label": {
     "ID": "ID",
@@ -94,7 +102,11 @@
     "No products": "No products",
     "Favicon": "Favicon",
     "Hotline": "Hotline",
-    "Done order": "Done order"
+    "Done order": "Done order",
+    "No setting": "No setting",
+    "About content": "About content",
+    "Delivery Pocily content": "Delivery Pocily content",
+    "Return Pocily content": "Return Pocily content"
   },
   "placeholder": {
     "example": "example",

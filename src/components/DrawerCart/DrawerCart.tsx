@@ -1,4 +1,4 @@
-import React, { FC, memo, useMemo } from "react";
+import React, { FC, useMemo } from "react";
 
 import { Box, Button, Divider, Drawer, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,7 @@ import CartItem from "./CartItem";
 const DrawerCart: FC = () => {
   const { t } = useTranslation();
   const history = useHistory();
+
   const dispatch = useAppDispatch();
   const { isOpenDrawerCart, totalMoney, carts } = useAppSelector(
     state => state.checkout
@@ -50,7 +51,7 @@ const DrawerCart: FC = () => {
       }}
     >
       <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-        <Typography sx={{ p: 2 }} variant="h5" fontWeight={600}>
+        <Typography sx={{ p: 2, fontWeight: 600 }} variant="h5">
           {t("common.Shopping Cart", { ns: "client" })}
         </Typography>
         <Divider />
@@ -95,4 +96,4 @@ const DrawerCart: FC = () => {
   );
 };
 
-export default memo(DrawerCart);
+export default DrawerCart;

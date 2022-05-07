@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useEffect, useCallback } from "react";
+import React, { FC, useState, useEffect, useCallback } from "react";
 
 import {
   AddShoppingCartRounded,
@@ -46,8 +46,9 @@ import { useAppDispatch, useAppSelector } from "redux/store";
 
 const DetailScreen: FC = () => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
   const { productId } = useParams<{ productId: string }>();
+
+  const dispatch = useAppDispatch();
   const {
     product: { productDetail },
     category: { categoryDetail },
@@ -67,6 +68,7 @@ const DetailScreen: FC = () => {
 
   const handleAddProductToCart = useCallback(() => {
     if (!productDetail) return;
+
     if (
       productDetail.id in carts &&
       carts[productDetail.id].quantity >= productDetail.quantity
@@ -113,7 +115,7 @@ const DetailScreen: FC = () => {
 
   return (
     <Container>
-      <Box mt={2} mb={4}>
+      <Box sx={{ mt: 2, mb: 4 }}>
         <Breadcrumbs aria-label="breadcrumb">
           <CustomLink to="/">{t("common.Home", { ns: "client" })}</CustomLink>
           {categoryDetail && (
@@ -128,7 +130,7 @@ const DetailScreen: FC = () => {
           <Typography color="text.primary">{productDetail.title}</Typography>
         </Breadcrumbs>
       </Box>
-      <Grid container spacing={3} mb={5}>
+      <Grid container spacing={3} sx={{ mb: 5 }}>
         <Grid item xs={12} md={6}>
           <PreviewImage
             aspectRatio={AspectRatioEnum.THREE_TO_FOUR}
@@ -137,10 +139,10 @@ const DetailScreen: FC = () => {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography variant="h3" fontWeight={700} mb={2}>
+          <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
             {productDetail.title}
           </Typography>
-          <Stack direction="row" spacing={3} mb={2}>
+          <Stack direction="row" spacing={3} sx={{ mb: 2 }}>
             <CustomLink to="/social-facebook" color="grey.500">
               <FacebookRounded />
             </CustomLink>
@@ -159,9 +161,8 @@ const DetailScreen: FC = () => {
           </Stack>
           <Typography
             variant="h4"
-            fontWeight={600}
             color="primary"
-            sx={{ mb: 1 }}
+            sx={{ mb: 1, fontWeight: 600 }}
           >
             {toCurrency(productDetail.price)}
           </Typography>
@@ -198,32 +199,36 @@ const DetailScreen: FC = () => {
             }}
           >
             <Box
-              borderBottom={1}
-              borderColor="divider"
-              p={2}
-              display="flex"
-              alignItems="center"
+              sx={{
+                borderBottom: 1,
+                borderColor: "divider",
+                p: 2,
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <LocalCarWashRounded />
-              <Typography fontWeight={500} color="grey.600" ml={2}>
+              <Typography sx={{ fontWeight: 500, ml: 2 }} color="grey.600">
                 {t("common.Security policy", { ns: "client" })}
               </Typography>
             </Box>
             <Box
-              borderBottom={1}
-              borderColor="divider"
-              p={2}
-              display="flex"
-              alignItems="center"
+              sx={{
+                borderBottom: 1,
+                borderColor: "divider",
+                p: 2,
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <VerifiedUserRounded />
-              <Typography fontWeight={500} color="grey.600" ml={2}>
+              <Typography sx={{ fontWeight: 500, ml: 2 }} color="grey.600">
                 {t("common.Delivery policy", { ns: "client" })}
               </Typography>
             </Box>
-            <Box p={2} display="flex" alignItems="center">
+            <Box sx={{ display: "flex", p: 2, alignItems: "center" }}>
               <CompareArrowsRounded />
-              <Typography fontWeight={500} color="grey.600" ml={2}>
+              <Typography sx={{ fontWeight: 500, ml: 2 }} color="grey.600">
                 {t("common.Return policy", { ns: "client" })}
               </Typography>
             </Box>
@@ -238,7 +243,7 @@ const DetailScreen: FC = () => {
           <Tab label={t("common.Reviews", { ns: "client" })} />
         </Tabs>
       </Box>
-      <Box mb={5}>
+      <Box sx={{ mb: 5 }}>
         <TabPanel value={tabIndex} index={0}>
           {productDetail.description}
         </TabPanel>
@@ -253,4 +258,4 @@ const DetailScreen: FC = () => {
   );
 };
 
-export default memo(DetailScreen);
+export default DetailScreen;

@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import React, { FC } from "react";
 
 import { CloseRounded } from "@mui/icons-material";
 import { IconButton, Snackbar } from "@mui/material";
@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from "redux/store";
 
 const CustomSnackbar: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { open, message, autoHideDuration } = useAppSelector(
     state => state.snackbar
@@ -45,4 +46,4 @@ const CustomSnackbar: FC = () => {
   );
 };
 
-export default memo(CustomSnackbar);
+export default CustomSnackbar;

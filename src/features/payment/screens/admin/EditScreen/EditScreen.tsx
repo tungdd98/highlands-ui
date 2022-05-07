@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState, useMemo } from "react";
+import React, { FC, useEffect, useState, useMemo } from "react";
 
 import { Box } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
@@ -25,10 +25,12 @@ import { displaySnackbar } from "redux/snackbar.slice";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
 const EditScreen: FC = () => {
-  const dispatch = useAppDispatch();
   const history = useHistory();
-  const { paymentDetail } = useAppSelector(state => state.payment);
   const { paymentId } = useParams<{ paymentId: string }>();
+
+  const dispatch = useAppDispatch();
+
+  const { paymentDetail } = useAppSelector(state => state.payment);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -120,4 +122,4 @@ const EditScreen: FC = () => {
   );
 };
 
-export default memo(EditScreen);
+export default EditScreen;

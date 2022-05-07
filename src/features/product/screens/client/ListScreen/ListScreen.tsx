@@ -44,9 +44,9 @@ import FormSearchPrice from "../../../components/client/FormSearchPrice/FormSear
 
 const ListScreen: FC = () => {
   const { t } = useTranslation();
+  const { categoryId } = useParams<{ categoryId: string }>();
 
   const dispatch = useAppDispatch();
-  const { categoryId } = useParams<{ categoryId: string }>();
 
   const [sortQuery, setSortQuery] = useState(SortQueryEnum.CREATED_AT_DESC);
   const [isLoading, setIsLoading] = useState(true);
@@ -207,7 +207,9 @@ const ListScreen: FC = () => {
               )}
             </>
           ) : (
-            <Typography textAlign="center">No products.</Typography>
+            <Typography textAlign="center">
+              {t("common.No products", { ns: "client" })}
+            </Typography>
           )}
         </Grid>
       </Grid>

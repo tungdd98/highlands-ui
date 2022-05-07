@@ -14,7 +14,7 @@ const RadioPayment: FC<RadioPaymentProps> = ({ value, title, subTitle }) => {
       control={<Radio />}
       label={
         <>
-          <Typography fontWeight={600}>{title}</Typography>
+          <Typography sx={{ fontWeight: 600 }}>{title}</Typography>
           {subTitle && <Typography variant="caption">{subTitle}</Typography>}
         </>
       }

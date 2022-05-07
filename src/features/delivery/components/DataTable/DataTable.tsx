@@ -171,7 +171,7 @@ const DataTable: FC<DataTableProps> = ({
         open={isOpenDeleteDialog}
         onClose={() => setIsOpenDeleteDialog(false)}
         onSubmit={handleDeleteUser}
-        title="Do you want delete record?"
+        title={t("common.Do you want delete record?", { ns: "admin" })}
       />
 
       <ListNavigation

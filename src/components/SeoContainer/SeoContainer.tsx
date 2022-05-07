@@ -14,9 +14,11 @@ const SeoContainer: FC = () => {
 
   const faviconUrl = useMemo(() => {
     if (!setting) return "/favicon.ico";
+
     if (setting.favicon.match(/^(blob:)?https?:\/\/[\w/:%#$&?()~.=+-]+$/g)) {
       return setting.favicon;
     }
+
     return `${process.env.REACT_APP_PATH_UPLOAD + setting.favicon}`;
   }, [setting]);
 

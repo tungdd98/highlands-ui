@@ -28,9 +28,10 @@ const BillingAddress: FC<BillingAddressProps> = ({
   location,
 }) => {
   const { t } = useTranslation();
+  const history = useHistory();
+
   const dispatch = useAppDispatch();
   const { location: locationStore } = useAppSelector(state => state.checkout);
-  const history = useHistory();
 
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -56,7 +57,7 @@ const BillingAddress: FC<BillingAddressProps> = ({
     <Paper elevation={6} sx={{ p: 2, mb: 2 }}>
       {hasEditButton && (
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
-          <Typography variant="h6" fontWeight={600}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
             {t("common.Billing Address", { ns: "client" })}
           </Typography>
           <Button
@@ -71,7 +72,7 @@ const BillingAddress: FC<BillingAddressProps> = ({
         </Box>
       )}
       <Stack direction="row" spacing={1} alignItems="flex-end">
-        <Typography fontWeight={600} variant="body1">
+        <Typography sx={{ fontWeight: 600 }} variant="body1">
           {location.name}
         </Typography>
         <Typography variant="caption">

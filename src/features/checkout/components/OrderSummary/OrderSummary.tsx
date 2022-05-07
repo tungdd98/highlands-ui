@@ -15,6 +15,7 @@ interface OrderSummaryProps {
 
 const OrderSummary: FC<OrderSummaryProps> = ({ hasEditButton }) => {
   const { t } = useTranslation();
+
   const {
     checkout: { totalMoney, deliveryId },
     delivery: { allDelivery },
@@ -27,7 +28,7 @@ const OrderSummary: FC<OrderSummaryProps> = ({ hasEditButton }) => {
   return (
     <Paper elevation={6} sx={{ p: 2, mb: 3 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
-        <Typography variant="h6" fontWeight={600}>
+        <Typography variant="h6">
           {t("common.Order Summary", { ns: "client" })}
         </Typography>
         {hasEditButton && (
@@ -44,16 +45,18 @@ const OrderSummary: FC<OrderSummaryProps> = ({ hasEditButton }) => {
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
         <Typography>{t("common.Sub Total", { ns: "client" })}</Typography>
-        <Typography fontWeight={600}>{toCurrency(totalMoney)}</Typography>
+        <Typography sx={{ fontWeight: 600 }}>
+          {toCurrency(totalMoney)}
+        </Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
         <Typography>{t("common.Discount", { ns: "client" })}</Typography>
-        <Typography fontWeight={600}>{toCurrency(0)}</Typography>
+        <Typography sx={{ fontWeight: 600 }}>{toCurrency(0)}</Typography>
       </Box>
       {deliverySelected && (
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
           <Typography>{t("common.Shipping", { ns: "client" })}</Typography>
-          <Typography fontWeight={600}>
+          <Typography sx={{ fontWeight: 600 }}>
             {deliverySelected.price
               ? toCurrency(deliverySelected.price)
               : "Free"}
@@ -69,16 +72,19 @@ const OrderSummary: FC<OrderSummaryProps> = ({ hasEditButton }) => {
           mb: 1,
         }}
       >
-        <Typography fontWeight={600}>
+        <Typography sx={{ fontWeight: 600 }}>
           {t("common.Total", { ns: "client" })}
         </Typography>
-        <Typography fontWeight={600} color="primary">
+        <Typography sx={{ fontWeight: 600 }} color="primary">
           {toCurrency(
             totalMoney + (deliverySelected ? deliverySelected.price : 0)
           )}
         </Typography>
       </Box>
-      <Typography variant="caption" textAlign="right" display="block">
+      <Typography
+        variant="caption"
+        sx={{ textAlign: "right", display: "block" }}
+      >
         ({t("common.VAT included if applicable", { ns: "client" })})
       </Typography>
     </Paper>

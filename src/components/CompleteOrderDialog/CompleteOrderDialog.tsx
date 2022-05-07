@@ -24,9 +24,10 @@ interface CompleteOrderDialogProps {
 
 const CompleteOrderDialog: FC<CompleteOrderDialogProps> = ({ open }) => {
   const { t } = useTranslation();
+  const history = useHistory();
+
   const dispatch = useAppDispatch();
   const { orderSuccess } = useAppSelector(state => state.checkout);
-  const history = useHistory();
 
   const handleRedirectHomePage = () => {
     dispatch(removeOrderSuccess());

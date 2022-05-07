@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from "react";
+import React, { FC, useState } from "react";
 
 import { AddRounded, ArrowBackIosNewRounded } from "@mui/icons-material";
 import {
@@ -25,6 +25,7 @@ import OrderSummary from "../../components/OrderSummary/OrderSummary";
 
 const BillingAddressScreen: FC = () => {
   const { t } = useTranslation();
+
   const {
     auth: { userInfo },
     checkout: { totalQuantity },
@@ -46,7 +47,7 @@ const BillingAddressScreen: FC = () => {
 
   return (
     <Container>
-      <Box mt={2} mb={4}>
+      <Box sx={{ mt: 2, mb: 4 }}>
         <Breadcrumbs aria-label="breadcrumb">
           <CustomLink to="/">
             <StepLabel>{t("common.Home", { ns: "client" })}</StepLabel>
@@ -57,7 +58,7 @@ const BillingAddressScreen: FC = () => {
         </Breadcrumbs>
       </Box>
 
-      <Grid container spacing={3} mb={4}>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid item xs={12} md={8}>
           <Stepper activeStep={1} alternativeLabel>
             {CHECKOUT_STEPS.map(label => (
@@ -115,4 +116,4 @@ const BillingAddressScreen: FC = () => {
   );
 };
 
-export default memo(BillingAddressScreen);
+export default BillingAddressScreen;

@@ -16,10 +16,7 @@ const StickyHeader: FC<StickyHeaderProps> = ({ linkBack, isSubmitting }) => {
     <Box
       component={Paper}
       elevation={3}
-      px={2}
-      position="sticky"
-      top={0}
-      zIndex={9}
+      sx={{ px: 2, position: "sticky", top: 0, zIndex: 9 }}
     >
       <Box
         sx={theme => ({

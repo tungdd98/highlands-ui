@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState, useMemo } from "react";
+import React, { FC, useEffect, useState, useMemo } from "react";
 
 import { Box } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
@@ -30,8 +30,9 @@ import { displaySnackbar } from "redux/snackbar.slice";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
 const EditScreen: FC = () => {
-  const dispatch = useAppDispatch();
   const history = useHistory();
+
+  const dispatch = useAppDispatch();
   const { articleDetail } = useAppSelector(state => state.article);
   const { allCategory } = useAppSelector(state => state.category);
   const { articleId } = useParams<{ articleId: string }>();
@@ -121,7 +122,7 @@ const EditScreen: FC = () => {
           />
 
           <ContentWrapper>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="title"
                 label="Title"
@@ -130,7 +131,7 @@ const EditScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikSelect
                 name="categoryId"
                 label="Categories"
@@ -141,7 +142,7 @@ const EditScreen: FC = () => {
 
             <UploadImage name="thumbnail" label="Thumbnail" />
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="source"
                 label="Source"
@@ -150,7 +151,7 @@ const EditScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="author"
                 label="Author"
@@ -159,7 +160,7 @@ const EditScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="description"
                 label="Description"
@@ -170,7 +171,7 @@ const EditScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="content"
                 label="Content"
@@ -181,7 +182,7 @@ const EditScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikSelect
                 name="status"
                 label="Status"
@@ -196,4 +197,4 @@ const EditScreen: FC = () => {
   );
 };
 
-export default memo(EditScreen);
+export default EditScreen;

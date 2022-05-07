@@ -1,8 +1,9 @@
-import React, { FC, memo, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import { Typography } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { Form, Formik } from "formik";
+import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
 
 import ContentWrapper from "components/EditComponents/ContentWrapper";
@@ -18,9 +19,11 @@ import { handleErrorResponse } from "helpers/forms/handle-error-response";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
 const AboutPageScreen: FC = () => {
+  const { t } = useTranslation();
+  const history = useHistory();
+
   const dispatch = useAppDispatch();
   const { setting } = useAppSelector(state => state.setting);
-  const history = useHistory();
 
   const [loading, setLoading] = useState(true);
 
@@ -54,7 +57,7 @@ const AboutPageScreen: FC = () => {
 
           <ContentWrapper>
             <Typography sx={{ fontWeight: 600, mb: 2 }}>
-              About content
+              {t("label.About content", { ns: "admin" })}
             </Typography>
             <TextEditor name="aboutPage" />
           </ContentWrapper>
@@ -64,4 +67,4 @@ const AboutPageScreen: FC = () => {
   );
 };
 
-export default memo(AboutPageScreen);
+export default AboutPageScreen;

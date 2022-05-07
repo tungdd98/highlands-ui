@@ -34,7 +34,7 @@ const CartItem: FC<CartItemProps> = ({ cart, handleDeleteCart }) => {
               width={60}
             />
           </Box>
-          <Typography variant="body2" fontWeight={500}>
+          <Typography variant="body2" sx={{ fontWeight: 500 }}>
             {cart.product.title}
           </Typography>
         </Box>

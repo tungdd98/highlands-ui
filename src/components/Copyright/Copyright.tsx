@@ -1,13 +1,17 @@
-import React, { FC, memo } from "react";
+import React, { FC } from "react";
 
 import { Link, Typography } from "@mui/material";
 
+import { useAppSelector } from "redux/store";
+
 const Copyright: FC = () => {
+  const { setting } = useAppSelector(state => state.setting);
+
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Highlands
+        {setting?.title}
       </Link>
       &nbsp;
       {new Date().getFullYear()}.
@@ -15,4 +19,4 @@ const Copyright: FC = () => {
   );
 };
 
-export default memo(Copyright);
+export default Copyright;

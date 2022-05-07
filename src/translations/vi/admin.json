@@ -14,7 +14,12 @@
     "Something error": "Có lỗi xảy ra",
     "Add product success": "Thêm sản phẩm vào giỏ",
     "Over product": "Vượt quá số lượng còn lại của sản phẩm",
-    "No data": "Không có dữ liệu."
+    "No data": "Không có dữ liệu.",
+    "Settings system": "Cài đặt hệ thống",
+    "Basic settings": "Cài đặt cơ bản",
+    "About Page": "Trang giới thiệu",
+    "Delivery Page": "Trang chính sách vận chuyển",
+    "Return Page": "Trang chính sách hoàn trả"
   },
   "sidebar": {
     "Dashboard": "Dashboard",
@@ -45,7 +50,10 @@
     "Login": "Đăng nhập",
     "Create new account": "Tạo tài khoản",
     "Edit": "Cập nhật",
-    "Delete": "Xoá"
+    "Delete": "Xoá",
+    "Crop Image": "Cắt ảnh",
+    "Zoom": "Thu phóng",
+    "Rotation": "Xoay"
   },
   "label": {
     "ID": "ID",
@@ -94,7 +102,11 @@
     "No products": "Không có sản phẩm",
     "Favicon": "Favicon",
     "Hotline": "Hotline",
-    "Done order": "Done order"
+    "Done order": "Done order",
+    "No setting": "Không được thiết lập",
+    "About content": "Nội dung giới thiệu về chúng tôi",
+    "Delivery Pocily content": "Chính sách vận chuyển",
+    "Return Pocily content": "Chính sách hoàn trả"
   },
   "placeholder": {
     "example": "VD: abc",

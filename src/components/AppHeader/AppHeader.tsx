@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import React, { FC } from "react";
 
 import { Box, Container, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
@@ -33,4 +33,4 @@ const AppHeader: FC = () => {
   );
 };
 
-export default memo(AppHeader);
+export default AppHeader;

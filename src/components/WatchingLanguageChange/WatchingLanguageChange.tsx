@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from "react";
+import { FC, useEffect } from "react";
 
 import { useTranslation } from "react-i18next";
 
@@ -15,4 +15,4 @@ const WatchingLanguageChange: FC = () => {
   return null;
 };
 
-export default memo(WatchingLanguageChange);
+export default WatchingLanguageChange;

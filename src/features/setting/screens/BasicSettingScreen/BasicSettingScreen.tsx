@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import { Box } from "@mui/material";
 import { unwrapResult } from "@reduxjs/toolkit";
@@ -24,9 +24,10 @@ import { uploadImage } from "helpers/forms/upload-image";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
 const BasicSettingScreen: FC = () => {
+  const history = useHistory();
+
   const dispatch = useAppDispatch();
   const { setting } = useAppSelector(state => state.setting);
-  const history = useHistory();
 
   const [loading, setLoading] = useState(true);
 
@@ -79,7 +80,7 @@ const BasicSettingScreen: FC = () => {
           />
 
           <ContentWrapper>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="title"
                 label="Title"
@@ -88,7 +89,7 @@ const BasicSettingScreen: FC = () => {
               />
             </Box>
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="description"
                 label="Description"
@@ -113,7 +114,7 @@ const BasicSettingScreen: FC = () => {
               cropAspectRatio={AspectRatioEnum.ONE_TO_ONE}
             />
 
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <FormikTextField
                 name="address"
                 label="Address"
@@ -137,4 +138,4 @@ const BasicSettingScreen: FC = () => {
   );
 };
 
-export default memo(BasicSettingScreen);
+export default BasicSettingScreen;

@@ -46,6 +46,7 @@ const ViewOrderDetailDialog: FC<ViewOrderDetailDialogProps> = ({
   handleCloseDetailDialog,
 }) => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const {
     payment: { allPayment },
@@ -105,31 +106,32 @@ const ViewOrderDetailDialog: FC<ViewOrderDetailDialogProps> = ({
           <CloseRounded />
         </IconButton>
       </DialogTitle>
+
       <DialogContent ref={componentRef}>
         <Box sx={{ mb: 2, pb: 2, borderBottom: 1, borderColor: "divider" }}>
-          <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
             {t("label.User Information", { ns: "admin" })}
           </Typography>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="body1" fontWeight={600} sx={{ pr: 1, mb: 1 }}>
+            <Typography variant="body1" sx={{ pr: 1, mb: 1, fontWeight: 600 }}>
               {t("label.Fullname", { ns: "admin" })}:
             </Typography>
             <Typography variant="body1">{order.location?.name}</Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="body1" fontWeight={600} sx={{ pr: 1, mb: 1 }}>
+            <Typography variant="body1" sx={{ pr: 1, mb: 1, fontWeight: 600 }}>
               {t("label.Address", { ns: "admin" })}:
             </Typography>
             <Typography variant="body1">{order.location?.address}</Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="body1" fontWeight={600} sx={{ pr: 1, mb: 1 }}>
+            <Typography variant="body1" sx={{ pr: 1, mb: 1, fontWeight: 600 }}>
               {t("label.Phone number", { ns: "admin" })}:
             </Typography>
             <Typography variant="body1">{order.location?.phone}</Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="body1" fontWeight={600} sx={{ pr: 1, mb: 1 }}>
+            <Typography variant="body1" sx={{ pr: 1, mb: 1, fontWeight: 600 }}>
               {t("label.Created at", { ns: "admin" })}:
             </Typography>
             <Typography variant="body1">
@@ -137,7 +139,7 @@ const ViewOrderDetailDialog: FC<ViewOrderDetailDialogProps> = ({
             </Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="body1" fontWeight={600} sx={{ pr: 1, mb: 1 }}>
+            <Typography variant="body1" sx={{ pr: 1, mb: 1, fontWeight: 600 }}>
               {t("label.Status", { ns: "admin" })}:
             </Typography>
             {statusInfo && (

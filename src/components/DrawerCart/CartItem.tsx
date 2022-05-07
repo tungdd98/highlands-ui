@@ -17,6 +17,7 @@ type CartItemProps = CartDef;
 
 const CartItem: FC<CartItemProps> = props => {
   const dispatch = useAppDispatch();
+
   const {
     product: { thumbnail, title, id, price, quantity: quantityProduct },
     quantity,
@@ -64,7 +65,7 @@ const CartItem: FC<CartItemProps> = props => {
             <Typography sx={{ fontWeight: 600, mb: 1 }} color="primary.main">
               {toCurrency(price)}
             </Typography>
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <QuantityInput
                 maxQuantity={quantityProduct}
                 value={value}

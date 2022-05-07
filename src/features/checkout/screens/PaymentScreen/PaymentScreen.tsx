@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useMemo, useEffect } from "react";
+import React, { FC, useState, useMemo, useEffect } from "react";
 
 import { ArrowBackIosNewRounded } from "@mui/icons-material";
 import {
@@ -42,6 +42,7 @@ import RadioPayment from "../../components/RadioPayment/RadioPayment";
 
 const PaymentScreen: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const {
     checkout: {
@@ -135,7 +136,7 @@ const PaymentScreen: FC = () => {
 
   return (
     <Container>
-      <Box mt={2} mb={4}>
+      <Box sx={{ mt: 2, mb: 4 }}>
         <Breadcrumbs aria-label="breadcrumb">
           <CustomLink to="/">{t("common.Home", { ns: "client" })}</CustomLink>
           <Typography color="text.primary">
@@ -144,7 +145,7 @@ const PaymentScreen: FC = () => {
         </Breadcrumbs>
       </Box>
 
-      <Grid container spacing={3} mb={4}>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid item xs={12} md={8}>
           <Stepper activeStep={2} alternativeLabel>
             {CHECKOUT_STEPS.map(label => (
@@ -160,10 +161,10 @@ const PaymentScreen: FC = () => {
         {({ values, handleChange, isSubmitting }) => {
           return (
             <Form>
-              <Grid container spacing={3} mb={3}>
+              <Grid container spacing={3} sx={{ mb: 3 }}>
                 <Grid item xs={12} md={8}>
                   <Paper elevation={6} sx={{ p: 2, mb: 3 }}>
-                    <Typography variant="h6" fontWeight={600} mb={3}>
+                    <Typography variant="h6" sx={{ mb: 3, fontWeight: 600 }}>
                       {t("common.Delivery options", { ns: "client" })}
                     </Typography>
                     <RadioGroup
@@ -251,4 +252,4 @@ const PaymentScreen: FC = () => {
   );
 };
 
-export default memo(PaymentScreen);
+export default PaymentScreen;

@@ -23,11 +23,13 @@ const QuantityInput: FC<QuantityInputProps> = ({
   productId,
 }) => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector(state => state.checkout);
 
   const handleIncreaseValue = useCallback(() => {
     if (value === maxQuantity) return;
+
     setValue(value + 1);
     if (productId && productId in carts) {
       dispatch(changeQuantityProduct({ id: productId, quantity: 1 }));
@@ -36,6 +38,7 @@ const QuantityInput: FC<QuantityInputProps> = ({
 
   const handleDecreaseValue = useCallback(() => {
     if (value === 1) return;
+
     setValue(value - 1);
     if (productId && productId in carts) {
       dispatch(changeQuantityProduct({ id: productId, quantity: -1 }));

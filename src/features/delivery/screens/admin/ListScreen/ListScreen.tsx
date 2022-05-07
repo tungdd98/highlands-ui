@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { AddRounded } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
@@ -21,6 +21,7 @@ import FormSearch from "../../../components/FormSearch/FormSearch";
 
 const ListScreen: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { deliveries } = useAppSelector(state => state.delivery);
 
@@ -42,10 +43,12 @@ const ListScreen: FC = () => {
   return (
     <>
       <Box
-        display="flex"
-        py={3}
-        alignItems="center"
-        justifyContent="space-between"
+        sx={{
+          display: "flex",
+          py: 3,
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
         <Typography variant="h5">
           {t("common.Manage", { ns: "admin" })}&nbsp;
@@ -79,10 +82,10 @@ const ListScreen: FC = () => {
           setQueries={setQueries}
         />
       ) : (
-        <Typography>No data</Typography>
+        <Typography>{t("common.No data", { ns: "admin" })}</Typography>
       )}
     </>
   );
 };
 
-export default memo(ListScreen);
+export default ListScreen;

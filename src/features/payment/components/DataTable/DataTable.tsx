@@ -46,8 +46,9 @@ const DataTable: FC<DataTableProps> = ({
   setQueries,
 }) => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
   const history = useHistory();
+
+  const dispatch = useAppDispatch();
 
   const [isOpenDeleteDialog, setIsOpenDeleteDialog] = useState(false);
   const [selectedRow, setSelectedRow] = useState<PaymentDef | null>(null);

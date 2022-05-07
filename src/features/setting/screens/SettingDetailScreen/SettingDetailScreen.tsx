@@ -1,6 +1,7 @@
-import React, { FC, memo, useState, useEffect, useCallback } from "react";
+import React, { FC, useState, useEffect, useCallback } from "react";
 
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
@@ -17,6 +18,8 @@ import { useAppDispatch, useAppSelector } from "redux/store";
 import RowData from "../../components/RowData/RowData";
 
 const SettingDetailScreen: FC = () => {
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { setting, roles } = useAppSelector(state => state.setting);
 
@@ -43,18 +46,20 @@ const SettingDetailScreen: FC = () => {
   return (
     <Container>
       <Typography variant="h5" sx={{ py: 3 }}>
-        Settings system
+        {t("common.Settings system", { ns: "admin" })}
       </Typography>
 
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
         <Box
-          display="flex"
-          mb={3}
-          alignItems="center"
-          justifyContent="space-between"
+          sx={{
+            display: "flex",
+            mb: 3,
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
         >
           <Typography variant="h6" fontWeight={600}>
-            Basic settings
+            {t("common.Basic settings", { ns: "admin" })}
           </Typography>
           <Button
             variant="contained"
@@ -62,19 +67,19 @@ const SettingDetailScreen: FC = () => {
             size="large"
             to={SettingPathsEnum.BASIC_SETTING}
           >
-            Edit
+            {t("button.Edit", { ns: "admin" })}
           </Button>
         </Box>
 
         <Box sx={{ mb: 3 }}>
           <Typography variant="body1" fontWeight={500}>
-            Title
+            {t("label.Title", { ns: "admin" })}
           </Typography>
           <RowData content={setting?.title} />
         </Box>
         <Box sx={{ mb: 3 }}>
           <Typography variant="body1" fontWeight={500}>
-            Description
+            {t("label.Description", { ns: "admin" })}
           </Typography>
           <RowData content={setting?.description} />
         </Box>
@@ -86,13 +91,13 @@ const SettingDetailScreen: FC = () => {
         </Box>
         <Box sx={{ mb: 3 }}>
           <Typography variant="body1" fontWeight={500} sx={{ mb: 1 }}>
-            Thumbnail
+            {t("label.Thumbnail", { ns: "admin" })}
           </Typography>
           <PreviewImage src={setting?.thumbnail} width={120} />
         </Box>
         <Box sx={{ mb: 3 }}>
           <Typography variant="body1" fontWeight={500}>
-            Address
+            {t("label.Address", { ns: "admin" })}
           </Typography>
           <RowData content={setting?.address} />
         </Box>
@@ -107,7 +112,7 @@ const SettingDetailScreen: FC = () => {
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Typography variant="h6" fontWeight={600}>
-            About Page
+            {t("common.About Page", { ns: "admin" })}
           </Typography>
           <Button
             variant="contained"
@@ -115,7 +120,7 @@ const SettingDetailScreen: FC = () => {
             size="large"
             to={SettingPathsEnum.ABOUT_PAGE}
           >
-            Edit
+            {t("button.Edit", { ns: "admin" })}
           </Button>
         </Box>
       </Paper>
@@ -123,7 +128,7 @@ const SettingDetailScreen: FC = () => {
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Typography variant="h6" fontWeight={600}>
-            Delivery Page
+            {t("common.Delivery Page", { ns: "admin" })}
           </Typography>
           <Button
             variant="contained"
@@ -131,7 +136,7 @@ const SettingDetailScreen: FC = () => {
             size="large"
             to={SettingPathsEnum.DELIVERY_PAGE}
           >
-            Edit
+            {t("button.Edit", { ns: "admin" })}
           </Button>
         </Box>
       </Paper>
@@ -139,7 +144,7 @@ const SettingDetailScreen: FC = () => {
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Typography variant="h6" fontWeight={600}>
-            Return Page
+            {t("common.Return Page", { ns: "admin" })}
           </Typography>
           <Button
             variant="contained"
@@ -147,7 +152,7 @@ const SettingDetailScreen: FC = () => {
             size="large"
             to={SettingPathsEnum.RETURN_PAGE}
           >
-            Edit
+            {t("button.Edit", { ns: "admin" })}
           </Button>
         </Box>
       </Paper>
@@ -177,4 +182,4 @@ const SettingDetailScreen: FC = () => {
   );
 };
 
-export default memo(SettingDetailScreen);
+export default SettingDetailScreen;

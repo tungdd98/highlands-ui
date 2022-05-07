@@ -126,7 +126,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
   }, [src]);
 
   return (
-    <Box width="100%">
+    <Box sx={{ width: "100%" }}>
       <BasicImage
         src={previewUrl || imageSrc || NoImage}
         alt={alt}
