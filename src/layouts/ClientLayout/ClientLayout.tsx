@@ -16,14 +16,19 @@ const ClientLayout: FC = ({ children }) => {
   return (
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <AppHeader />
+
       <Navbar />
+
       <Box component="main" sx={{ flexGrow: 1, mb: 10 }}>
         {children}
       </Box>
+
       <AppFooter />
 
       <DrawerCart />
+
       <QuickViewDialog />
+
       <CompleteOrderDialog open={!!orderSuccess} />
     </Box>
   );

@@ -38,7 +38,7 @@ import Copyright from "components/Copyright/Copyright";
 import SelectLanguage from "components/SelectLanguage/SelectLanguage";
 import { AuthPathsEnum, logout } from "features/auth/auth";
 import { HomePathsEnum } from "features/home/home";
-import { useAppDispatch } from "redux/store";
+import { useAppDispatch, useAppSelector } from "redux/store";
 import { ROUTE_LIST } from "routes/routes.config";
 
 const drawerWidth = 300;
@@ -93,11 +93,13 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const AdminLayout: FC = ({ children }) => {
-  const dispatch = useAppDispatch();
   const history = useHistory();
   const location = useLocation();
   const theme = useTheme();
   const { t } = useTranslation();
+
+  const dispatch = useAppDispatch();
+  const { setting } = useAppSelector(state => state.setting);
 
   const [open, setOpen] = useState(true);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -145,7 +147,7 @@ const AdminLayout: FC = ({ children }) => {
             }}
           >
             <Typography variant="h6" noWrap component="div">
-              Highlands
+              {setting?.title || "React App"}
             </Typography>
             <Stack direction="row" spacing={2} alignItems="center">
               <SelectLanguage />
@@ -192,7 +194,7 @@ const AdminLayout: FC = ({ children }) => {
             <ListItemIcon>
               <HomeRounded />
             </ListItemIcon>
-            <ListItemText primary="Highlands" />
+            <ListItemText primary={setting?.title || "React App"} />
           </ListItem>
         </List>
         <Divider />
