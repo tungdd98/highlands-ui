@@ -12,7 +12,11 @@ import { Box, styled } from "@mui/material";
 import { sample } from "lodash";
 
 import NoImage from "assets/images/no-image.png";
-import { RANDOM_IMAGES_ERROR } from "constants/common.constants";
+import {
+  FakeImagesEnum,
+  RANDOM_IMAGES_ERROR_PRODUCT,
+  RANDOM_IMAGES_ERROR_BANNER,
+} from "constants/common.constants";
 
 const BasicImage = styled("img")(() => ({
   maxWidth: "100%",
@@ -33,7 +37,13 @@ interface PreviewImageProps
   };
   borderRadius?: string | number;
   aspectRatio?: number;
+  fakeImages?: FakeImagesEnum;
 }
+
+const fakeImagesUrl = {
+  [FakeImagesEnum.PRODUCT]: RANDOM_IMAGES_ERROR_PRODUCT,
+  [FakeImagesEnum.BANNER]: RANDOM_IMAGES_ERROR_BANNER,
+};
 
 const PreviewImage: FC<PreviewImageProps> = ({
   src,
@@ -43,6 +53,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
   borderRadius = 1,
   aspectRatio,
   width,
+  fakeImages = FakeImagesEnum.PRODUCT,
   ...props
 }) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>();
@@ -126,7 +137,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
         }}
         onError={({ currentTarget }) => {
           currentTarget.onerror = null;
-          currentTarget.src = sample(RANDOM_IMAGES_ERROR) || "";
+          currentTarget.src = sample(fakeImagesUrl[fakeImages]) || "";
         }}
         ref={image => {
           if (!image) {

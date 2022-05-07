@@ -1,3 +1,5 @@
+import FakeImageBanner1 from "assets/images/banners/banner1.webp";
+import FakeImageBanner2 from "assets/images/banners/banner2.webp";
 import FlagEn from "assets/images/flag-en.png";
 import FlagVi from "assets/images/flag-vi.png";
 import ImageProduct1 from "assets/images/products/product1.webp";
@@ -39,7 +41,7 @@ export enum AspectRatioEnum {
   TEN_TO_FOUR = 10 / 4,
 }
 
-export const RANDOM_IMAGES_ERROR = [
+export const RANDOM_IMAGES_ERROR_PRODUCT = [
   ImageProduct1,
   ImageProduct2,
   ImageProduct3,
@@ -52,6 +54,8 @@ export const RANDOM_IMAGES_ERROR = [
   ImageProduct10,
 ];
 
+export const RANDOM_IMAGES_ERROR_BANNER = [FakeImageBanner1, FakeImageBanner2];
+
 export const LANGUAGE_OPTIONS: LanguageOption[] = [
   { lng: "en", flag: FlagEn, title: "English" },
   { lng: "vi", flag: FlagVi, title: "Vietnamese" },
@@ -60,4 +64,9 @@ export const LANGUAGE_OPTIONS: LanguageOption[] = [
 export enum StatusEnum {
   HIDDEN,
   DISPLAY,
+}
+
+export enum FakeImagesEnum {
+  PRODUCT = "product",
+  BANNER = "banner",
 }

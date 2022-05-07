@@ -63,10 +63,11 @@ const AppFooter: FC = () => {
           </Stack>
         </Container>
       </Box>
+
       <Container maxWidth="lg">
-        <Grid container spacing={3} my={4}>
+        <Grid container spacing={3} sx={{ my: 4 }}>
           <Grid item xs={12} sm={6} md={6}>
-            <Typography variant="h5" fontWeight={500} mb={2}>
+            <Typography variant="h5" sx={{ fontWeight: 500, mb: 2 }}>
               {t("footer.Store Information", { ns: "client" })}
             </Typography>
             <Typography
@@ -77,7 +78,7 @@ const AppFooter: FC = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h5" fontWeight={500} mb={2}>
+            <Typography variant="h5" sx={{ fontWeight: 500, mb: 2 }}>
               {t("footer.Information", { ns: "client" })}
             </Typography>
             <Stack direction="column" spacing={2}>
@@ -101,7 +102,7 @@ const AppFooter: FC = () => {
             </Stack>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h5" fontWeight={500} mb={2}>
+            <Typography variant="h5" sx={{ fontWeight: 500, mb: 2 }}>
               {t("footer.Support", { ns: "client" })}
             </Typography>
             <Stack direction="column" spacing={2}>
@@ -131,6 +132,7 @@ const AppFooter: FC = () => {
           </Grid>
         </Grid>
       </Container>
+
       <Box sx={{ bgcolor: "secondary.main", p: 2 }}>
         <Copyright />
       </Box>
