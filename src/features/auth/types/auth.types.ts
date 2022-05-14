@@ -19,5 +19,7 @@ export interface LoginResponse {
   email: string;
   id: number;
   roles: string[];
+  name: string;
+  thumbnail: string;
   locations: LocationDef[];
 }

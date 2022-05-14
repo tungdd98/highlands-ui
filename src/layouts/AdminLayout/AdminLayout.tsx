@@ -29,6 +29,7 @@ import {
   Menu,
   MenuItem,
   Stack,
+  Container,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
@@ -236,7 +237,7 @@ const AdminLayout: FC = ({ children }) => {
       <Main open={open}>
         <DrawerHeader />
         <Box flex={1} height="calc(100% - 64px)">
-          {children}
+          <Container>{children}</Container>
         </Box>
         <Copyright />
       </Main>
