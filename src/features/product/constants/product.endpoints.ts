@@ -4,4 +4,5 @@ export enum ProductEndpointsEnum {
   CREATE = "/products",
   UPDATE = "/products/:productId",
   DELETE = "/products/:productId",
+  GET_TOTAL_PRODUCT = "/products/total_products",
 }

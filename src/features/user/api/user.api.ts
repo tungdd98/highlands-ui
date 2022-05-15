@@ -35,12 +35,17 @@ const putUserApi = (
   );
 };
 
+const getTotalUsersApi = (): Promise<AxiosResponse> => {
+  return api.get(UserEndpointsEnum.GET_TOTAL_USERS);
+};
+
 const userApi = {
   getUserListApi,
   postUserApi,
   deleteUserApi,
   getUserDetailApi,
   putUserApi,
+  getTotalUsersApi,
 };
 
 export default userApi;

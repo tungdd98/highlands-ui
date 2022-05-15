@@ -4,4 +4,5 @@ export enum UserEndpointsEnum {
   CREATE = "/users",
   UPDATE = "/users/:userId",
   DELETE = "/users/:userId",
+  GET_TOTAL_USERS = "/users/total_users",
 }

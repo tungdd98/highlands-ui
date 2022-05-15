@@ -43,12 +43,17 @@ const putProductApi = (
   );
 };
 
+const getTotalProductsApi = (): Promise<AxiosResponse> => {
+  return api.get(ProductEndpointsEnum.GET_TOTAL_PRODUCT);
+};
+
 const productApi = {
   getProductListApi,
   postProductApi,
   deleteProductApi,
   getProductDetailApi,
   putProductApi,
+  getTotalProductsApi,
 };
 
 export default productApi;

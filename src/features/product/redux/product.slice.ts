@@ -14,12 +14,14 @@ interface ProductState {
   products: ProductListResponse | null;
   productDetail: ProductDef | null;
   productQuickView: ProductDef | null;
+  totalProducts: number;
 }
 
 const initialState: ProductState = {
   products: null,
   productDetail: null,
   productQuickView: null,
+  totalProducts: 0,
 };
 
 export const getProductList = createAsyncThunk<
@@ -89,6 +91,14 @@ export const putProduct = createAsyncThunk<
   }
 });
 
+export const getTotalProducts = createAsyncThunk<number>(
+  "product/getTotalProducts",
+  async () => {
+    const response = await api.getTotalProductsApi();
+    return response.data;
+  }
+);
+
 const productSlice = createSlice({
   name: "product",
   initialState,
@@ -109,6 +119,9 @@ const productSlice = createSlice({
     });
     builder.addCase(getProductDetail.rejected, state => {
       state.productDetail = null;
+    });
+    builder.addCase(getTotalProducts.fulfilled, (state, action) => {
+      state.totalProducts = action.payload || 0;
     });
   },
 });

@@ -6,4 +6,5 @@ export enum OrderEndpointsEnum {
   GET_TOTAL_MONEY_COMPLETED = "/orders/total_money_orders_completed",
   GET_TOTAL_ORDER_COMPLETED = "/orders/total_orders_completed",
   GET_TOTAL_ORDER = "/orders/total_orders",
+  GET_LATEST_PRODUCTS = "/orders/latest_products",
 }

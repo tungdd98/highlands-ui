@@ -2,35 +2,48 @@ import React, { FC, memo } from "react";
 
 import {
   Box,
-  LinearProgress,
-  LinearProgressProps,
+  CircularProgress,
+  CircularProgressProps,
   Typography,
 } from "@mui/material";
 
-import { toCurrency } from "helpers/converts/currency";
-
-interface SalesOverviewProps extends LinearProgressProps {
+interface SalesOverviewProps extends CircularProgressProps {
   title: string;
   total: number;
 }
 
-const SalesOverview: FC<SalesOverviewProps> = ({ title, total, color }) => {
+const SalesOverview: FC<SalesOverviewProps> = props => {
+  const { total, title } = props;
+
   return (
-    <Box sx={{ width: "100%", mb: 1 }}>
+    <Box sx={{ position: "relative", display: "inline-flex" }}>
+      <CircularProgress
+        size={150}
+        variant="determinate"
+        value={100}
+        thickness={2}
+        {...props}
+      />
       <Box
         sx={{
-          mb: 1,
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: "absolute",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
+          flexDirection: "column",
         }}
       >
-        <Typography variant="subtitle2">{title}</Typography>
-        <Typography variant="subtitle2" sx={{ display: "inline", mr: 1 }}>
-          {toCurrency(total)}
+        <Typography variant="h4" sx={{ fontWeight: 600 }}>
+          {Math.round(total)}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
+          {title}
         </Typography>
       </Box>
-      <LinearProgress variant="determinate" value={total} color={color} />
     </Box>
   );
 };

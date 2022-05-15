@@ -29,7 +29,10 @@ import {
   getTotalMoneyOrdersCompleted,
   getTotalOrdersCompleted,
   getTotalOrders,
+  getLatestProducts,
 } from "features/order/order";
+import { getTotalProducts } from "features/product/product";
+import { getTotalUsers } from "features/user/user";
 import { useAppSelector, useAppDispatch } from "redux/store";
 
 import LatestProduct from "../../components/LatestProduct/LatestProduct";
@@ -49,7 +52,10 @@ const DashboardScreen: FC = () => {
       percentOrder,
     },
     totalOrders,
+    latestProducts,
   } = useAppSelector(state => state.order);
+  const { totalProducts } = useAppSelector(state => state.product);
+  const { totalUsers } = useAppSelector(state => state.user);
 
   const [time, setTime] = useState(TimeStatisticalEnum.WEEK);
   const [loading, setLoading] = useState(true);
@@ -118,6 +124,9 @@ const DashboardScreen: FC = () => {
         })
       ),
       dispatch(getTotalOrders()),
+      dispatch(getTotalProducts()),
+      dispatch(getTotalUsers()),
+      dispatch(getLatestProducts()),
     ]).finally(() => {
       Promise.all([
         dispatch(
@@ -210,11 +219,44 @@ const DashboardScreen: FC = () => {
                 Sales Overview
               </Typography>
 
-              <SalesOverview
-                title="Total Orders"
-                total={totalOrders}
-                color="primary"
-              />
+              <Grid container spacing={1}>
+                <Grid
+                  item
+                  xs={6}
+                  md={4}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
+                  <SalesOverview
+                    title="Total Orders"
+                    total={totalOrders}
+                    color="primary"
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={6}
+                  md={4}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
+                  <SalesOverview
+                    title="Total Products"
+                    total={totalProducts}
+                    color="info"
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={6}
+                  md={4}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
+                  <SalesOverview
+                    title="Total Users"
+                    total={totalUsers}
+                    color="success"
+                  />
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
@@ -226,9 +268,13 @@ const DashboardScreen: FC = () => {
                 Latest Products
               </Typography>
 
-              <LatestProduct />
-              <LatestProduct />
-              <LatestProduct />
+              {latestProducts ? (
+                latestProducts.map(product => (
+                  <LatestProduct key={product.id} {...product} />
+                ))
+              ) : (
+                <Typography>No data</Typography>
+              )}
             </CardContent>
           </Card>
         </Grid>

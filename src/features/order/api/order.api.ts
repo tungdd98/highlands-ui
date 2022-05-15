@@ -60,6 +60,10 @@ const getTotalOrdersApi = (): Promise<AxiosResponse> => {
   return api.get(OrderEndpointsEnum.GET_TOTAL_ORDER);
 };
 
+const getLatestProductsApi = (): Promise<AxiosResponse> => {
+  return api.get(OrderEndpointsEnum.GET_LATEST_PRODUCTS);
+};
+
 const orderApi = {
   getOrderListApi,
   patchUpdateStatusApi,
@@ -68,6 +72,7 @@ const orderApi = {
   getTotalMoneyOrdersCompletedApi,
   getTotalOrdersCompletedApi,
   getTotalOrdersApi,
+  getLatestProductsApi,
 };
 
 export default orderApi;

@@ -13,11 +13,13 @@ import api from "../api/user.api";
 interface UserState {
   users: UserListResponse | null;
   userDetail: UserDef | null;
+  totalUsers: number;
 }
 
 const initialState: UserState = {
   users: null,
   userDetail: null,
+  totalUsers: 0,
 };
 
 export const getUserList = createAsyncThunk<UserListResponse, UserParams>(
@@ -87,6 +89,14 @@ export const putUser = createAsyncThunk<
   }
 });
 
+export const getTotalUsers = createAsyncThunk<number>(
+  "user/getTotalUsers",
+  async () => {
+    const response = await api.getTotalUsersApi();
+    return response.data;
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -103,6 +113,9 @@ const userSlice = createSlice({
     });
     builder.addCase(getUserDetail.rejected, state => {
       state.userDetail = null;
+    });
+    builder.addCase(getTotalUsers.fulfilled, (state, action) => {
+      state.totalUsers = action.payload || 0;
     });
   },
 });

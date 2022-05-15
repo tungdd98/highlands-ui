@@ -22,6 +22,7 @@ interface OrderState {
     percentOrder: number;
   };
   totalOrders: number;
+  latestProducts: OrderDetailDef[] | null;
 }
 
 const initialState: OrderState = {
@@ -35,6 +36,7 @@ const initialState: OrderState = {
     percentOrder: 0,
   },
   totalOrders: 0,
+  latestProducts: null,
 };
 
 export const getOrderList = createAsyncThunk<OrderListResponse, OrderParams>(
@@ -105,6 +107,14 @@ export const getTotalOrders = createAsyncThunk<number>(
   async () => {
     const response = await api.getTotalOrdersApi();
     return response.data;
+  }
+);
+
+export const getLatestProducts = createAsyncThunk<OrderDetailDef[]>(
+  "order/getLatestProducts",
+  async () => {
+    const response = await api.getLatestProductsApi();
+    return response.data.list;
   }
 );
 
@@ -185,6 +195,9 @@ const orderSlice = createSlice({
     });
     builder.addCase(getTotalOrders.fulfilled, (state, action) => {
       state.totalOrders = action.payload;
+    });
+    builder.addCase(getLatestProducts.fulfilled, (state, action) => {
+      state.latestProducts = action.payload;
     });
   },
 });
