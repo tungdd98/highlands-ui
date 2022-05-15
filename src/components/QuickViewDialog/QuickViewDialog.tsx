@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useState } from "react";
+import React, { FC, memo, useCallback, useEffect, useState } from "react";
 
 import {
   AddShoppingCartRounded,
@@ -63,7 +63,7 @@ const QuickViewDialog: FC = () => {
     } else {
       dispatch(
         addProductToCart({
-          quantity: 1,
+          quantity: value,
           product: productQuickView,
         })
       );
@@ -75,7 +75,13 @@ const QuickViewDialog: FC = () => {
         })
       );
     }
-  }, [carts, dispatch, handleCloseDialog, productQuickView]);
+  }, [carts, dispatch, handleCloseDialog, productQuickView, value]);
+
+  useEffect(() => {
+    if (!productQuickView) {
+      setValue(1);
+    }
+  }, [productQuickView]);
 
   if (!productQuickView) {
     return null;

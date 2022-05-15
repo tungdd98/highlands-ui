@@ -81,7 +81,7 @@ const DetailScreen: FC = () => {
     } else {
       dispatch(
         addProductToCart({
-          quantity: 1,
+          quantity: value,
           product: productDetail,
         })
       );
@@ -92,7 +92,7 @@ const DetailScreen: FC = () => {
         })
       );
     }
-  }, [carts, dispatch, productDetail]);
+  }, [carts, dispatch, productDetail, value]);
 
   useEffect(() => {
     dispatch(getProductDetail(Number(productId)))
