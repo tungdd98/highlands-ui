@@ -18,7 +18,7 @@ const SalesOverview: FC<SalesOverviewProps> = props => {
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
       <CircularProgress
-        size={150}
+        size={180}
         variant="determinate"
         value={100}
         thickness={2}

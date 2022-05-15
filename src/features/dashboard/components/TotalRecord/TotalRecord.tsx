@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
+import { useTranslation } from "react-i18next";
 
 import {
   TimeStatisticalEnum,
@@ -46,6 +47,8 @@ const TotalRecord: FC<TotalRecordProps> = ({
   icon,
   colorIcon,
 }) => {
+  const { t } = useTranslation();
+
   const isBetter = percent > 0;
   const IconTotal = icon || TokenOutlined;
 
@@ -86,10 +89,10 @@ const TotalRecord: FC<TotalRecordProps> = ({
           )}
           <Typography variant="body1" sx={{ fontWeight: 500 }}>
             {isBetter ? "+" : ""}
-            {toCurrency(percent, true)}&nbsp;
+            {toCurrency(percent, true)}%&nbsp;
           </Typography>
           <Typography variant="body1" color="GrayText">
-            {STATISTICAL_TIME[timeStatistical]}
+            {t(`label.${STATISTICAL_TIME[timeStatistical]}`, { ns: "admin" })}
           </Typography>
         </Box>
       </CardContent>

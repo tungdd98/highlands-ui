@@ -19,7 +19,17 @@
     "Basic settings": "Basic settings",
     "About Page": "About Page",
     "Delivery Page": "Delivery Page",
-    "Return Page": "Return Page"
+    "Return Page": "Return Page",
+    "Hi": "Hi",
+    "Welcome back": "Welcome back",
+    "Product Sold": "Product Sold",
+    "Total Balance": "Total Balance",
+    "Order Completed": "Order Completed",
+    "Sales Overview": "Sales Overview",
+    "Latest Products": "Latest Products",
+    "Total Orders": "Total Orders",
+    "Total Products": "Total Products",
+    "Total Users": "Total Users"
   },
   "sidebar": {
     "Dashboard": "Dashboard",
@@ -106,7 +116,13 @@
     "No setting": "No setting",
     "About content": "About content",
     "Delivery Pocily content": "Delivery Pocily content",
-    "Return Pocily content": "Return Pocily content"
+    "Return Pocily content": "Return Pocily content",
+    "than last year": "than last year",
+    "than last month": "than last month",
+    "than last week": "than last week",
+    "Last week": "Last week",
+    "Last month": "Last month",
+    "Last year": "Last year"
   },
   "placeholder": {
     "example": "example",

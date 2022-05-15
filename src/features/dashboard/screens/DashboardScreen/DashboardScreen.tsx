@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { subMonths, subWeeks } from "date-fns";
 import { subYears } from "date-fns/esm";
+import { useTranslation } from "react-i18next";
 
 import Loader from "components/Loader/Loader";
 import {
@@ -40,6 +41,8 @@ import SalesOverview from "../../components/SalesOverview/SalesOverview";
 import TotalRecord from "../../components/TotalRecord/TotalRecord";
 
 const DashboardScreen: FC = () => {
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector(state => state.auth);
   const {
@@ -158,7 +161,8 @@ const DashboardScreen: FC = () => {
   return (
     <>
       <Typography variant="h4" sx={{ mb: 2 }}>
-        Hi {userInfo?.name || "Unknown"}, Welcome back
+        {t("common.Hi", { ns: "admin" })} {userInfo?.name || "Unknown"},{" "}
+        {t("common.Welcome back", { ns: "admin" })}
       </Typography>
 
       <Box sx={{ maxWidth: 120, mb: 2 }}>
@@ -171,7 +175,9 @@ const DashboardScreen: FC = () => {
           >
             {STATISTICAL_TIME_SELECT.map(item => (
               <MenuItem key={item.value} value={item.value}>
-                <Typography variant="body2">{item.label}</Typography>
+                <Typography variant="body2">
+                  {t(`label.${item.label}`, { ns: "admin" })}
+                </Typography>
               </MenuItem>
             ))}
           </Select>
@@ -181,7 +187,7 @@ const DashboardScreen: FC = () => {
       <Grid container spacing={2} mb={2}>
         <Grid item xs={12} md={4}>
           <TotalRecord
-            title="Product Sold"
+            title={t("common.Product Sold", { ns: "admin" })}
             total={totalQuantityOrders}
             percent={percentQuantity}
             timeStatistical={timeStatistical}
@@ -191,7 +197,7 @@ const DashboardScreen: FC = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <TotalRecord
-            title="Total Balance"
+            title={t("common.Total Balance", { ns: "admin" })}
             total={totalMoneyOrders}
             percent={percentMoney}
             timeStatistical={timeStatistical}
@@ -201,7 +207,7 @@ const DashboardScreen: FC = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <TotalRecord
-            title="Order Completed"
+            title={t("common.Order Completed", { ns: "admin" })}
             total={totalOrdersCompleted}
             percent={percentOrder}
             timeStatistical={timeStatistical}
@@ -216,7 +222,7 @@ const DashboardScreen: FC = () => {
           <Card>
             <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-                Sales Overview
+                {t("common.Sales Overview", { ns: "admin" })}
               </Typography>
 
               <Grid container spacing={1}>
@@ -227,7 +233,7 @@ const DashboardScreen: FC = () => {
                   sx={{ display: "flex", justifyContent: "center" }}
                 >
                   <SalesOverview
-                    title="Total Orders"
+                    title={t("common.Total Orders", { ns: "admin" })}
                     total={totalOrders}
                     color="primary"
                   />
@@ -239,7 +245,7 @@ const DashboardScreen: FC = () => {
                   sx={{ display: "flex", justifyContent: "center" }}
                 >
                   <SalesOverview
-                    title="Total Products"
+                    title={t("common.Total Products", { ns: "admin" })}
                     total={totalProducts}
                     color="info"
                   />
@@ -251,7 +257,7 @@ const DashboardScreen: FC = () => {
                   sx={{ display: "flex", justifyContent: "center" }}
                 >
                   <SalesOverview
-                    title="Total Users"
+                    title={t("common.Total Users", { ns: "admin" })}
                     total={totalUsers}
                     color="success"
                   />
@@ -265,7 +271,7 @@ const DashboardScreen: FC = () => {
           <Card>
             <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-                Latest Products
+                {t("common.Latest Products", { ns: "admin" })}
               </Typography>
 
               {latestProducts ? (
@@ -273,7 +279,7 @@ const DashboardScreen: FC = () => {
                   <LatestProduct key={product.id} {...product} />
                 ))
               ) : (
-                <Typography>No data</Typography>
+                <Typography>{t("common.No data", { ns: "admin" })}</Typography>
               )}
             </CardContent>
           </Card>

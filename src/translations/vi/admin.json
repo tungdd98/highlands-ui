@@ -19,7 +19,17 @@
     "Basic settings": "Cài đặt cơ bản",
     "About Page": "Trang giới thiệu",
     "Delivery Page": "Trang chính sách vận chuyển",
-    "Return Page": "Trang chính sách hoàn trả"
+    "Return Page": "Trang chính sách hoàn trả",
+    "Hi": "Xin chào",
+    "Welcome back": "Chào mừng trở lại",
+    "Product Sold": "Sản phẩm đã bán",
+    "Total Balance": "Doanh thu",
+    "Order Completed": "Đơn hàng hoàn thành",
+    "Sales Overview": "Tổng quan",
+    "Latest Products": "Sản phẩm đã bán mới nhất",
+    "Total Orders": "Tổng đơn hàng",
+    "Total Products": "Tổng sản phẩm",
+    "Total Users": "Tổng người dùng"
   },
   "sidebar": {
     "Dashboard": "Dashboard",
@@ -106,7 +116,13 @@
     "No setting": "Không được thiết lập",
     "About content": "Nội dung giới thiệu về chúng tôi",
     "Delivery Pocily content": "Chính sách vận chuyển",
-    "Return Pocily content": "Chính sách hoàn trả"
+    "Return Pocily content": "Chính sách hoàn trả",
+    "than last year": "so với năm trước",
+    "than last month": "so với tháng trước",
+    "than last week": "so với tuần trước",
+    "Last week": "Tuần trước",
+    "Last month": "Tháng trước",
+    "Last year": "Năm ngoái"
   },
   "placeholder": {
     "example": "VD: abc",
