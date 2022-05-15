@@ -6,16 +6,35 @@ import {
   OrderListResponse,
   OrderStatusEnum,
   OrderDetailDef,
+  StatisticalParams,
 } from "features/order/order";
 
 import api from "../api/order.api";
 
 interface OrderState {
   orders: OrderListResponse | null;
+  completed: {
+    totalQuantityOrders: number;
+    totalMoneyOrders: number;
+    totalOrders: number;
+    percentQuantity: number;
+    percentMoney: number;
+    percentOrder: number;
+  };
+  totalOrders: number;
 }
 
 const initialState: OrderState = {
   orders: null,
+  completed: {
+    totalQuantityOrders: 0,
+    totalMoneyOrders: 0,
+    totalOrders: 0,
+    percentQuantity: 0,
+    percentMoney: 0,
+    percentOrder: 0,
+  },
+  totalOrders: 0,
 };
 
 export const getOrderList = createAsyncThunk<OrderListResponse, OrderParams>(
@@ -57,6 +76,38 @@ export const getOrderDetail = createAsyncThunk<OrderDetailDef[], number>(
   }
 );
 
+export const getTotalQuantityOrdersCompleted = createAsyncThunk<
+  number,
+  StatisticalParams
+>("order/getTotalQuantityOrdersCompleted", async params => {
+  const response = await api.getTotalQuantityOrdersCompletedApi(params);
+  return response.data;
+});
+
+export const getTotalMoneyOrdersCompleted = createAsyncThunk<
+  number,
+  StatisticalParams
+>("order/getTotalMoneyOrdersCompleted", async params => {
+  const response = await api.getTotalMoneyOrdersCompletedApi(params);
+  return response.data;
+});
+
+export const getTotalOrdersCompleted = createAsyncThunk<
+  number,
+  StatisticalParams
+>("order/getTotalOrdersCompleted", async params => {
+  const response = await api.getTotalOrdersCompletedApi(params);
+  return response.data;
+});
+
+export const getTotalOrders = createAsyncThunk<number>(
+  "order/getTotalOrders",
+  async () => {
+    const response = await api.getTotalOrdersApi();
+    return response.data;
+  }
+);
+
 const orderSlice = createSlice({
   name: "order",
   initialState,
@@ -81,6 +132,59 @@ const orderSlice = createSlice({
           return item;
         });
       }
+    });
+    builder.addCase(
+      getTotalQuantityOrdersCompleted.fulfilled,
+      (state, action) => {
+        const { endTime } = action.meta.arg;
+        const totalQuantityOrders = action.payload || 0;
+
+        if (endTime) {
+          state.completed.percentQuantity = totalQuantityOrders
+            ? +(
+                ((state.completed.totalQuantityOrders - totalQuantityOrders) /
+                  totalQuantityOrders) *
+                100
+              ).toFixed(2)
+            : 100;
+        } else {
+          state.completed.totalQuantityOrders = totalQuantityOrders;
+        }
+      }
+    );
+    builder.addCase(getTotalMoneyOrdersCompleted.fulfilled, (state, action) => {
+      const { endTime } = action.meta.arg;
+      const totalMoneyOrders = action.payload || 0;
+
+      if (endTime) {
+        state.completed.percentMoney = totalMoneyOrders
+          ? +(
+              ((state.completed.totalMoneyOrders - totalMoneyOrders) /
+                totalMoneyOrders) *
+              100
+            ).toFixed(2)
+          : 100;
+      } else {
+        state.completed.totalMoneyOrders = totalMoneyOrders;
+      }
+    });
+    builder.addCase(getTotalOrdersCompleted.fulfilled, (state, action) => {
+      const { endTime } = action.meta.arg;
+      const totalOrders = action.payload || 0;
+
+      if (endTime) {
+        state.completed.percentOrder = totalOrders
+          ? +(
+              ((state.completed.totalOrders - totalOrders) / totalOrders) *
+              100
+            ).toFixed(2)
+          : 100;
+      } else {
+        state.completed.totalOrders = totalOrders;
+      }
+    });
+    builder.addCase(getTotalOrders.fulfilled, (state, action) => {
+      state.totalOrders = action.payload;
     });
   },
 });

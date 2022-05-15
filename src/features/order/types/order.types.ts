@@ -35,3 +35,8 @@ export interface OrderListResponse {
   totalItems: number;
   totalPages: number;
 }
+
+export interface StatisticalParams {
+  startTime: string;
+  endTime?: string;
+}

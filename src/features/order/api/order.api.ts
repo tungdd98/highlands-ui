@@ -5,6 +5,7 @@ import {
   OrderEndpointsEnum,
   OrderParams,
   OrderStatusEnum,
+  StatisticalParams,
 } from "features/order/order";
 
 const getOrderListApi = (params: OrderParams): Promise<AxiosResponse> => {
@@ -31,10 +32,42 @@ const getOrderDetailApi = (orderId: number): Promise<AxiosResponse> => {
   );
 };
 
+const getTotalQuantityOrdersCompletedApi = (
+  params: StatisticalParams
+): Promise<AxiosResponse> => {
+  return api.get(OrderEndpointsEnum.GET_TOTAL_QUANTITY_COMPLETED, {
+    params,
+  });
+};
+
+const getTotalMoneyOrdersCompletedApi = (
+  params: StatisticalParams
+): Promise<AxiosResponse> => {
+  return api.get(OrderEndpointsEnum.GET_TOTAL_MONEY_COMPLETED, {
+    params,
+  });
+};
+
+const getTotalOrdersCompletedApi = (
+  params: StatisticalParams
+): Promise<AxiosResponse> => {
+  return api.get(OrderEndpointsEnum.GET_TOTAL_ORDER_COMPLETED, {
+    params,
+  });
+};
+
+const getTotalOrdersApi = (): Promise<AxiosResponse> => {
+  return api.get(OrderEndpointsEnum.GET_TOTAL_ORDER);
+};
+
 const orderApi = {
   getOrderListApi,
   patchUpdateStatusApi,
   getOrderDetailApi,
+  getTotalQuantityOrdersCompletedApi,
+  getTotalMoneyOrdersCompletedApi,
+  getTotalOrdersCompletedApi,
+  getTotalOrdersApi,
 };
 
 export default orderApi;

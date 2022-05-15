@@ -18,6 +18,7 @@ import {
   TimeStatisticalEnum,
   STATISTICAL_TIME,
 } from "features/dashboard/dashboard";
+import { toCurrency } from "helpers/converts/currency";
 
 interface TotalRecordProps {
   title: string;
@@ -64,7 +65,7 @@ const TotalRecord: FC<TotalRecordProps> = ({
           }}
         >
           <Typography variant="h4" sx={{ fontWeight: 700 }}>
-            {total}
+            {toCurrency(total, true)}
           </Typography>
           <IconTotal fontSize="large" color={colorIcon} />
         </Box>
@@ -85,7 +86,7 @@ const TotalRecord: FC<TotalRecordProps> = ({
           )}
           <Typography variant="body1" sx={{ fontWeight: 500 }}>
             {isBetter ? "+" : ""}
-            {percent}&nbsp;
+            {toCurrency(percent, true)}&nbsp;
           </Typography>
           <Typography variant="body1" color="GrayText">
             {STATISTICAL_TIME[timeStatistical]}

@@ -1,6 +1,6 @@
-export const toCurrency = (number: number) => {
+export const toCurrency = (number: number, disableStyle?: boolean) => {
   return new Intl.NumberFormat("vi-VN", {
-    style: "currency",
+    style: disableStyle ? undefined : "currency",
     currency: "VND",
   }).format(number);
 };
