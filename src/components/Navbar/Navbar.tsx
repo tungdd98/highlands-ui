@@ -1,7 +1,6 @@
 import React, { FC, memo, useEffect, useMemo, useState } from "react";
 
 import {
-  SearchRounded,
   LocalMallRounded,
   PersonRounded,
   AccountBoxRounded,
@@ -35,6 +34,7 @@ import { CategoryTypesEnum, getAllCategory } from "features/category/category";
 import { setIsOpenDrawerCart } from "features/checkout/checkout";
 import { useAppDispatch, useAppSelector } from "redux/store";
 
+import ButtonSearch from "./ButtonSearch";
 import NavbarMobile from "./NavbarMobile";
 
 const Navbar: FC = () => {
@@ -138,9 +138,7 @@ const Navbar: FC = () => {
                 />
               </Stack>
               <Stack direction="row" spacing={2}>
-                <IconButton>
-                  <SearchRounded />
-                </IconButton>
+                <ButtonSearch />
 
                 <Button
                   variant="contained"

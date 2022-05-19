@@ -47,9 +47,19 @@ const CLIENT_DETAIL_SCREEN: RouteItem = {
   layout: ClientLayout,
 };
 
+const SEARCH_SCREEN: RouteItem = {
+  id: "search-product-screen",
+  path: ProductPathsEnum.SEARCH,
+  component: React.lazy(
+    () => import("../screens/client/SearchScreen/SearchScreen")
+  ),
+  layout: ClientLayout,
+};
+
 export const PRODUCT_ROUTES = [
   LIST_SCREEN,
   EDIT_SCREEN,
   CLIENT_LIST_SCREEN,
   CLIENT_DETAIL_SCREEN,
+  SEARCH_SCREEN,
 ];

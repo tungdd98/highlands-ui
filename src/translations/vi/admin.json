@@ -126,7 +126,8 @@
     "Roles": "Phân quyền",
     "User": "Người dùng",
     "Moderator": "Chủ doanh nghiệp",
-    "Admin": "Người quản lý"
+    "Admin": "Người quản lý",
+    "Search": "Tìm kiếm"
   },
   "placeholder": {
     "example": "VD: abc",

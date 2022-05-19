@@ -126,7 +126,8 @@
     "Roles": "Roles",
     "User": "User",
     "Moderator": "Moderator",
-    "Admin": "Admin"
+    "Admin": "Admin",
+    "Search": "Search"
   },
   "placeholder": {
     "example": "example",
