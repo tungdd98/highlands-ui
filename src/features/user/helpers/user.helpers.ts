@@ -28,6 +28,14 @@ export const editInitialValues: UserRequest = {
   name: "",
 };
 
-export const convertResponseToFormData = (user: UserDef): UserRequest => {
-  return { ...user };
+export const convertResponseToFormData = ({
+  email,
+  name,
+  roles,
+}: UserDef): UserRequest => {
+  return {
+    email,
+    name,
+    roles,
+  };
 };

@@ -102,7 +102,7 @@ const EditScreen: FC = () => {
             <Box mb={3}>
               <FormikTextField
                 name="email"
-                label={t("label.Email", { ns: "admin" })}
+                label="Email"
                 placeholder={t("placeholder.example@gmail.com", {
                   ns: "admin",
                 })}
@@ -114,7 +114,7 @@ const EditScreen: FC = () => {
             <Box mb={3}>
               <FormikTextField
                 name="name"
-                label={t("label.Name", { ns: "admin" })}
+                label="Name"
                 placeholder={t("placeholder.example", { ns: "admin" })}
                 fullWidth
               />

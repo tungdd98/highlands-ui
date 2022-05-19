@@ -1,3 +1,5 @@
+import { RolesEnum } from "./user.enums";
+
 export interface LocationDef {
   id: number;
   userId: number;
@@ -11,6 +13,8 @@ export interface UserDef {
   email: string;
   name: string;
   createdAt: string;
+  thumbnail: string | null;
+  roles: RolesEnum[];
 }
 
 export interface UserParams extends Partial<Omit<UserDef, "id">> {
@@ -19,10 +23,7 @@ export interface UserParams extends Partial<Omit<UserDef, "id">> {
   perPage?: number;
 }
 
-export interface UserRequest {
-  email?: string;
-  name: string;
-}
+export type UserRequest = Partial<UserDef>;
 
 export interface UserListResponse {
   currentPage: number;

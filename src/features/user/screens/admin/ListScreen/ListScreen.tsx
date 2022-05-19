@@ -1,15 +1,10 @@
 import React, { FC, memo, useEffect, useState } from "react";
 
-import { AddRounded } from "@mui/icons-material";
-import { Box, Button, Typography } from "@mui/material";
-import { compile } from "path-to-regexp";
+import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
-import { ModesScreenEnum } from "constants/common.constants";
 import {
-  UserPathsEnum,
   searchInitialValues,
   getUserList,
   UserParams,
@@ -41,29 +36,11 @@ const ListScreen: FC = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          py: 3,
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <Box sx={{ py: 3 }}>
         <Typography variant="h5">
           {t("common.Manage", { ns: "admin" })}&nbsp;
           {t("sidebar.Users", { ns: "admin" })}
         </Typography>
-        <Button
-          variant="contained"
-          startIcon={<AddRounded />}
-          component={Link}
-          size="large"
-          to={compile(UserPathsEnum.EDIT)({
-            mode: ModesScreenEnum.CREATE,
-          })}
-        >
-          {t("button.Add new", { ns: "admin" })}
-        </Button>
       </Box>
 
       <FormSearch
