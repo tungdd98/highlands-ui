@@ -8,6 +8,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import ContentWrapper from "components/EditComponents/ContentWrapper";
 import StickyHeader from "components/EditComponents/StickyHeader";
+import FormikCheckbox from "components/FormElements/FormikCheckbox/FormikCheckbox";
 import FormikTextField from "components/FormElements/FormikTextField/FormikTextField";
 import Loader from "components/Loader/Loader";
 import { ModesScreenEnum } from "constants/common.constants";
@@ -17,10 +18,12 @@ import {
   editSchema,
   editInitialValues,
   convertResponseToFormData,
+  convertFormDataToRequestBody,
   postUser,
   getUserDetail,
   putUser,
-  UserRequest,
+  ROLE_OPTIONS,
+  UserFormData,
 } from "features/user/user";
 import { handleErrorResponse } from "helpers/forms/handle-error-response";
 import { displaySnackbar } from "redux/snackbar.slice";
@@ -43,17 +46,18 @@ const EditScreen: FC = () => {
   }, [userDetail, userId]);
 
   const handleSubmit = (
-    values: UserRequest,
-    { setSubmitting }: FormikHelpers<UserRequest>
+    values: UserFormData,
+    { setSubmitting }: FormikHelpers<UserFormData>
   ) => {
+    const data = convertFormDataToRequestBody(values);
     const action = userId
       ? dispatch(
           putUser({
-            data: values,
+            data,
             userId: Number(userId),
           })
         )
-      : dispatch(postUser(values));
+      : dispatch(postUser(data));
 
     action
       .then(unwrapResult)
@@ -119,6 +123,8 @@ const EditScreen: FC = () => {
                 fullWidth
               />
             </Box>
+
+            <FormikCheckbox label="Roles" name="roles" options={ROLE_OPTIONS} />
           </ContentWrapper>
         </Form>
       )}

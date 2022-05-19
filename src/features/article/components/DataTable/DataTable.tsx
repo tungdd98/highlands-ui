@@ -1,6 +1,6 @@
 import React, { FC, memo, useState } from "react";
 
-import { MoreVertRounded } from "@mui/icons-material";
+import { CircleRounded, MoreVertRounded } from "@mui/icons-material";
 import {
   IconButton,
   Paper,
@@ -155,9 +155,14 @@ const DataTable: FC<DataTableProps> = ({
                   <TableCell>{row.author}</TableCell>
                   <TableCell>{row.source}</TableCell>
                   <TableCell>
-                    {row.status === ArticleStatusEnum.DISPLAY
-                      ? "Display"
-                      : "Hidden"}
+                    <CircleRounded
+                      fontSize="small"
+                      color={
+                        row.status === ArticleStatusEnum.DISPLAY
+                          ? "success"
+                          : "error"
+                      }
+                    />
                   </TableCell>
                   <TableCell>{formatDate(row.createdAt)}</TableCell>
                 </TableRow>

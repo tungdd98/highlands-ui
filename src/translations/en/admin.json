@@ -122,7 +122,11 @@
     "than last week": "than last week",
     "Last week": "Last week",
     "Last month": "Last month",
-    "Last year": "Last year"
+    "Last year": "Last year",
+    "Roles": "Roles",
+    "User": "User",
+    "Moderator": "Moderator",
+    "Admin": "Admin"
   },
   "placeholder": {
     "example": "example",
@@ -132,5 +136,13 @@
     "Link": "https://example",
     "Password": "********",
     "0973793xxx": "0973793xxx"
+  },
+  "validation": {
+    "required": "This field is required, please enter.",
+    "email": "Email must be a valid email.",
+    "confirmPassword": "Passwords must match.",
+    "price": "Price must be greater than or equal to 0.",
+    "quantity": "Quantity must be greater than or equal to 0.",
+    "number": "Please enter the number."
   }
 }

@@ -43,7 +43,7 @@ const FormikTextField: FC<FormikTextFieldProps> = ({
         name={name}
         variant={variant}
         error={!!error}
-        helperText={error && errorText}
+        helperText={error && t(errorText, { ns })}
         value={get(values, name)}
         autoComplete="off"
         hiddenLabel

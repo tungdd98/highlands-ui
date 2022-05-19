@@ -11,9 +11,9 @@ import { DeliveryDef } from "features/delivery/delivery";
 import { PaymentDef } from "features/payment/payment";
 
 export const schemaLocation = yup.object().shape({
-  address: yup.string().required(),
-  phone: yup.string().required(),
-  name: yup.string().required(),
+  address: yup.string().required("validation.required"),
+  phone: yup.string().required("validation.required"),
+  name: yup.string().required("validation.required"),
 });
 
 export const initialValuesLocation: LocationForm = {

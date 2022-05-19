@@ -23,7 +23,15 @@ export interface UserParams extends Partial<Omit<UserDef, "id">> {
   perPage?: number;
 }
 
-export type UserRequest = Partial<UserDef>;
+export interface UserRequest {
+  name?: string;
+  email?: string;
+  roles?: number[];
+}
+
+export interface UserFormData extends Omit<UserRequest, "roles"> {
+  roles: string[];
+}
 
 export interface UserListResponse {
   currentPage: number;

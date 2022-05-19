@@ -17,6 +17,7 @@ const LIST_SCREEN: RouteItem = {
   navigationTitle: "Products",
   icon: AvTimerRounded,
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 const EDIT_SCREEN: RouteItem = {
@@ -25,6 +26,7 @@ const EDIT_SCREEN: RouteItem = {
   component: React.lazy(() => import("../screens/admin/EditScreen/EditScreen")),
   layout: AdminNoSidebar,
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 const CLIENT_LIST_SCREEN: RouteItem = {

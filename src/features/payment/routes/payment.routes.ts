@@ -13,6 +13,7 @@ const LIST_SCREEN: RouteItem = {
   navigationTitle: "Payments",
   icon: PaymentRounded,
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 const EDIT_SCREEN: RouteItem = {
@@ -21,6 +22,7 @@ const EDIT_SCREEN: RouteItem = {
   component: React.lazy(() => import("../screens/admin/EditScreen/EditScreen")),
   layout: AdminNoSidebar,
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 export const PAYMENT_ROUTES = [LIST_SCREEN, EDIT_SCREEN];

@@ -8,7 +8,7 @@ import {
 } from "features/article/article";
 
 export const searchSchema = yup.object().shape({
-  id: yup.number(),
+  id: yup.string().matches(/^[0-9]*$/g, "validation.number"),
   title: yup.string().max(255),
 });
 

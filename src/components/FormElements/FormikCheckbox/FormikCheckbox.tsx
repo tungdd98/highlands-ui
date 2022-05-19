@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { useFormikContext } from "formik";
 import { get } from "lodash";
+import { useTranslation } from "react-i18next";
 
 interface CheckboxOptionProp extends CheckboxProps {
   label: string;
@@ -23,6 +24,7 @@ interface FormikCheckboxProps {
   name: string;
   label?: string;
   singleOption?: boolean;
+  ns?: string;
 }
 
 const FormikCheckbox: FC<FormikCheckboxProps> = ({
@@ -30,8 +32,11 @@ const FormikCheckbox: FC<FormikCheckboxProps> = ({
   name,
   label,
   singleOption,
+  ns = "admin",
   ...rest
 }) => {
+  const { t } = useTranslation();
+
   const { handleChange, errors, touched, values } = useFormikContext<unknown>();
 
   const error = get(errors, name) && get(touched, name);
@@ -55,7 +60,9 @@ const FormikCheckbox: FC<FormikCheckboxProps> = ({
     <FormControl component="fieldset" variant="standard" error={!!error}>
       {label && (
         <FormLabel component="legend">
-          <Typography sx={{ fontWeight: 600 }}>{label}</Typography>
+          <Typography sx={{ fontWeight: 600 }}>
+            {t(`label.${label}`, { ns })}
+          </Typography>
         </FormLabel>
       )}
       <FormGroup>
@@ -68,9 +75,10 @@ const FormikCheckbox: FC<FormikCheckboxProps> = ({
                 name={name}
                 onChange={handleChange}
                 value={option.value}
+                checked={value?.includes(option.value)}
               />
             }
-            label={option.label}
+            label={t(`label.${option.label}`, { ns }) as string}
           />
         ))}
         {error && <FormHelperText error>{errorText}</FormHelperText>}

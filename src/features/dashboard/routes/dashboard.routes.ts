@@ -11,6 +11,7 @@ const DASHBOARD_SCREEN: RouteItem = {
   ),
   navigationTitle: "Dashboard",
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 export const DASHBOARD_ROUTES = [DASHBOARD_SCREEN];

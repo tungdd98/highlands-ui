@@ -34,4 +34,5 @@ export type RouteItem = {
    * Icon sidebar
    */
   icon?: OverridableComponent<SvgIconTypeMap> | FC;
+  isAdminRoute?: boolean;
 };

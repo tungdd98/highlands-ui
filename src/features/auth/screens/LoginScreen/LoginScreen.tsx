@@ -16,9 +16,10 @@ import {
   loginSchema,
   postLogin,
 } from "features/auth/auth";
+import { RolesEnum } from "features/user/user";
 import { handleErrorResponse } from "helpers/forms/handle-error-response";
 import { useAppDispatch } from "redux/store";
-import { ROOT_ROUTE } from "routes/routes.config";
+import { DASHBOARD_ROUTE, ROOT_ROUTE } from "routes/routes.config";
 
 const LoginScreen: FC = () => {
   const { t } = useTranslation();
@@ -31,7 +32,10 @@ const LoginScreen: FC = () => {
   ) => {
     dispatch(postLogin(values))
       .then(unwrapResult)
-      .then(() => history.push(ROOT_ROUTE))
+      .then(res => {
+        const isAdminUser = res.roles.some(role => role !== RolesEnum.USER);
+        history.push(isAdminUser ? DASHBOARD_ROUTE : ROOT_ROUTE);
+      })
       .catch(() => handleErrorResponse({ dispatch }))
       .finally(() => setSubmitting(false));
   };

@@ -16,6 +16,7 @@ import { USER_ROUTES } from "features/user/user";
 
 export const ROOT_ROUTE = "/";
 export const AUTH_ROUTE = AuthPathsEnum.LOGIN;
+export const DASHBOARD_ROUTE = "/admin";
 
 export const ROUTE_LIST = [
   ...DASHBOARD_ROUTES,

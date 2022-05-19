@@ -20,6 +20,7 @@ const routeWrapperFunc = ({
   layout,
   isPrivateRoute,
   isAuthRoute,
+  isAdminRoute,
 }: RouteItem) => {
   const RouteLayout: FC = layout || AdminLayout;
 
@@ -30,8 +31,13 @@ const routeWrapperFunc = ({
       path={path}
       render={(props): React.ReactNode => {
         const isSignedIn = !!store.getState().auth.userInfo;
+        const isAdminUser = !!store.getState().auth.userInfo?.isAdminUser;
 
         if (isAuthRoute && isSignedIn) {
+          return <Redirect key="ROOT_ROUTE" to={ROOT_ROUTE} />;
+        }
+
+        if (isAdminRoute && !isAdminUser) {
           return <Redirect key="ROOT_ROUTE" to={ROOT_ROUTE} />;
         }
 

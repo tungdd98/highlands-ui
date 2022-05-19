@@ -10,7 +10,7 @@ import {
 } from "features/product/product";
 
 export const searchSchema = yup.object().shape({
-  id: yup.number(),
+  id: yup.string().matches(/^[0-9]*$/g, "validation.number"),
   title: yup.string().max(255),
 });
 
@@ -25,12 +25,18 @@ export const searchInitialValues: ProductParams = {
 };
 
 export const editSchema = yup.object().shape({
-  title: yup.string().required().max(255),
+  title: yup.string().required("validation.required").max(255),
   description: yup.string().max(255),
   include: yup.string().max(255),
   content: yup.string().max(255),
-  price: yup.number().min(0),
-  quantity: yup.number().min(0),
+  price: yup
+    .string()
+    .matches(/^[0-9]*$/g, "validation.number")
+    .min(0, "validation.price"),
+  quantity: yup
+    .string()
+    .matches(/^[0-9]*$/g, "validation.number")
+    .min(0, "validation.quantity"),
 });
 
 export const editInitialValues: ProductRequest = {

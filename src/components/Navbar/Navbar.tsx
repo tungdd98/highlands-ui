@@ -39,6 +39,7 @@ import NavbarMobile from "./NavbarMobile";
 
 const Navbar: FC = () => {
   const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const {
     category: { allCategory },
@@ -189,12 +190,14 @@ const Navbar: FC = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem component={Link} to="/admin">
-          <ListItemIcon>
-            <DashboardRounded fontSize="small" />
-          </ListItemIcon>
-          {t("menu.Admin", { ns: "client" })}
-        </MenuItem>
+        {userInfo?.isAdminUser && (
+          <MenuItem component={Link} to="/admin">
+            <ListItemIcon>
+              <DashboardRounded fontSize="small" />
+            </ListItemIcon>
+            {t("menu.Admin", { ns: "client" })}
+          </MenuItem>
+        )}
         <MenuItem>
           <ListItemIcon>
             <AccountBoxRounded fontSize="small" />

@@ -9,7 +9,7 @@ import {
 } from "features/category/category";
 
 export const searchSchema = yup.object().shape({
-  id: yup.number(),
+  id: yup.string().matches(/^[0-9]*$/g, "validation.number"),
   title: yup.string().max(255),
 });
 
@@ -23,7 +23,7 @@ export const searchInitialValues: CategoryParams = {
 };
 
 export const editSchema = yup.object().shape({
-  title: yup.string().required().max(255),
+  title: yup.string().required("validation.required").max(255),
   description: yup.string().max(255),
 });
 

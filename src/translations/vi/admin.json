@@ -122,7 +122,11 @@
     "than last week": "so với tuần trước",
     "Last week": "Tuần trước",
     "Last month": "Tháng trước",
-    "Last year": "Năm ngoái"
+    "Last year": "Năm ngoái",
+    "Roles": "Phân quyền",
+    "User": "Người dùng",
+    "Moderator": "Chủ doanh nghiệp",
+    "Admin": "Người quản lý"
   },
   "placeholder": {
     "example": "VD: abc",
@@ -132,5 +136,13 @@
     "Link": "https://example",
     "Password": "********",
     "0973793xxx": "0973793xxx"
+  },
+  "validation": {
+    "required": "Trường này là bắt buộc, vui lòng nhập.",
+    "email": "Định dạng email không đúng.",
+    "confirmPassword": "Mật khẩu xác nhận không đúng.",
+    "price": "Giá phải lớn hơn hoặc bằng 0.",
+    "quantity": "Số lượng phải lớn hơn hoặc bằng 0.",
+    "number": "Vui lòng nhập số."
   }
 }

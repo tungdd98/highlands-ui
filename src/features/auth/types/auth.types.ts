@@ -1,4 +1,4 @@
-import { LocationDef } from "features/user/user";
+import { LocationDef, RolesEnum } from "features/user/user";
 
 export interface RegisterForm {
   email: string;
@@ -18,7 +18,7 @@ export interface LoginResponse {
   accessToken: string;
   email: string;
   id: number;
-  roles: string[];
+  roles: RolesEnum[];
   name: string;
   thumbnail: string;
   locations: LocationDef[];

@@ -8,12 +8,16 @@ import {
   LoginRequest,
   LoginResponse,
 } from "features/auth/auth";
-import { LocationDef } from "features/user/user";
+import { LocationDef, RolesEnum } from "features/user/user";
 
 import api from "../api/auth.api";
 
 interface AuthState {
-  userInfo: LoginResponse | null;
+  userInfo:
+    | (LoginResponse & {
+        isAdminUser: boolean;
+      })
+    | null;
 }
 
 const initialState: AuthState = {
@@ -76,7 +80,13 @@ const authSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(postLogin.fulfilled, (state, action) => {
-      state.userInfo = action.payload;
+      const isAdminUser = action.payload.roles.some(
+        role => role !== RolesEnum.USER
+      );
+      state.userInfo = {
+        ...action.payload,
+        isAdminUser,
+      };
     });
     builder.addCase(postLogin.rejected, state => {
       state.userInfo = null;

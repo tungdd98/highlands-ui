@@ -12,6 +12,7 @@ const LIST_SCREEN: RouteItem = {
   navigationTitle: "Orders",
   icon: LocalMallRounded,
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 export const ORDER_ROUTES = [LIST_SCREEN];

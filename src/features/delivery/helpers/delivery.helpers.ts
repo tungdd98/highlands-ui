@@ -7,7 +7,7 @@ import {
 } from "features/delivery/delivery";
 
 export const searchSchema = yup.object().shape({
-  id: yup.number(),
+  id: yup.string().matches(/^[0-9]*$/g, "validation.number"),
   title: yup.string().max(255),
 });
 
@@ -19,8 +19,8 @@ export const searchInitialValues: DeliveryParams = {
 };
 
 export const editSchema = yup.object().shape({
-  title: yup.string().required().max(255),
-  price: yup.string().required(),
+  title: yup.string().required("validation.required").max(255),
+  price: yup.string().required("validation.required"),
 });
 
 export const editInitialValues: DeliveryRequest = {

@@ -8,7 +8,7 @@ import {
 } from "features/banner/banner";
 
 export const searchSchema = yup.object().shape({
-  id: yup.number(),
+  id: yup.string().matches(/^[0-9]*$/g, "validation.number"),
   title: yup.string().max(255),
 });
 
@@ -23,7 +23,7 @@ export const searchInitialValues: BannerParams = {
 export const editSchema = yup.object().shape({
   title: yup.string().max(255),
   link: yup.string().max(255),
-  thumbnail: yup.mixed().required(),
+  thumbnail: yup.mixed().required("validation.required"),
 });
 
 export const editInitialValues: BannerRequest = {

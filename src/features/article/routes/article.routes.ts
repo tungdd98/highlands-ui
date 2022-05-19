@@ -12,6 +12,7 @@ const LIST_SCREEN: RouteItem = {
   component: React.lazy(() => import("../screens/admin/ListScreen/ListScreen")),
   navigationTitle: "Articles",
   icon: NewspaperRounded,
+  isAdminRoute: true,
 };
 
 const EDIT_SCREEN: RouteItem = {
@@ -19,6 +20,7 @@ const EDIT_SCREEN: RouteItem = {
   path: ArticlePathsEnum.EDIT,
   component: React.lazy(() => import("../screens/admin/EditScreen/EditScreen")),
   layout: AdminNoSidebar,
+  isAdminRoute: true,
 };
 
 export const ARTICLE_ROUTES = [LIST_SCREEN, EDIT_SCREEN];

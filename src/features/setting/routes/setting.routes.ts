@@ -15,6 +15,7 @@ const DETAIL_SCREEN: RouteItem = {
   navigationTitle: "Settings",
   icon: SettingsRounded,
   isPrivateRoute: true,
+  isAdminRoute: true,
 };
 
 const BASIC_SETTING_SCREEN: RouteItem = {
@@ -25,6 +26,7 @@ const BASIC_SETTING_SCREEN: RouteItem = {
   ),
   isPrivateRoute: true,
   layout: AdminNoSidebar,
+  isAdminRoute: true,
 };
 
 const ABOUT_PAGE_SCREEN: RouteItem = {
@@ -35,6 +37,7 @@ const ABOUT_PAGE_SCREEN: RouteItem = {
   ),
   isPrivateRoute: true,
   layout: AdminNoSidebar,
+  isAdminRoute: true,
 };
 
 const DELIVERY_PAGE_SCREEN: RouteItem = {
@@ -45,6 +48,7 @@ const DELIVERY_PAGE_SCREEN: RouteItem = {
   ),
   isPrivateRoute: true,
   layout: AdminNoSidebar,
+  isAdminRoute: true,
 };
 
 const RETURN_PAGE_SCREEN: RouteItem = {
@@ -55,6 +59,7 @@ const RETURN_PAGE_SCREEN: RouteItem = {
   ),
   isPrivateRoute: true,
   layout: AdminNoSidebar,
+  isAdminRoute: true,
 };
 
 export const SETTING_ROUTES = [
