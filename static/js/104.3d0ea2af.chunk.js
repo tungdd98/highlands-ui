@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhighlands_ui=self.webpackChunkhighlands_ui||[]).push([[104],{82627:function(e,n,i){i.r(n);var u=i(72791),h=i(80184),r=function(){return(0,h.jsx)("div",{children:"ProfileScreen"})};n.default=(0,u.memo)(r)}}]);
+//# sourceMappingURL=104.3d0ea2af.chunk.js.map
