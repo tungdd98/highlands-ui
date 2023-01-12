@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/highlands-ui/static/js/main.7c5ea58d.js",
+    "main.js": "/highlands-ui/static/js/main.d09009bb.js",
     "static/js/9290.2c4a9e90.chunk.js": "/highlands-ui/static/js/9290.2c4a9e90.chunk.js",
     "static/js/7727.8c3bad58.chunk.js": "/highlands-ui/static/js/7727.8c3bad58.chunk.js",
     "static/js/2735.bc96e6c2.chunk.js": "/highlands-ui/static/js/2735.bc96e6c2.chunk.js",
@@ -80,7 +80,7 @@
     "static/media/flag-vi.png": "/highlands-ui/static/media/flag-vi.e3b0ce5eb758d235474a.png",
     "static/media/no-image.png": "/highlands-ui/static/media/no-image.d09e503817275d6b9eb4.png",
     "index.html": "/highlands-ui/index.html",
-    "main.7c5ea58d.js.map": "/highlands-ui/static/js/main.7c5ea58d.js.map",
+    "main.d09009bb.js.map": "/highlands-ui/static/js/main.d09009bb.js.map",
     "9290.2c4a9e90.chunk.js.map": "/highlands-ui/static/js/9290.2c4a9e90.chunk.js.map",
     "7727.8c3bad58.chunk.js.map": "/highlands-ui/static/js/7727.8c3bad58.chunk.js.map",
     "2735.bc96e6c2.chunk.js.map": "/highlands-ui/static/js/2735.bc96e6c2.chunk.js.map",
@@ -145,6 +145,6 @@
     "927.7e2777ee.chunk.js.map": "/highlands-ui/static/js/927.7e2777ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.7c5ea58d.js"
+    "static/js/main.d09009bb.js"
   ]
 }
