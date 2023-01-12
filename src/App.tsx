@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { createTheme, ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper";
 
 import CustomSnackbar from "components/CustomSnackbar/CustomSnackbar";
@@ -19,14 +19,14 @@ const theme = createTheme(themeOptions);
 const App: FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <HashRouter>
         <CssBaseline />
         <CustomSnackbar />
         <RouterWrapper />
         <ScrollToTop />
         <WatchingLanguageChange />
         <SeoContainer />
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 };
